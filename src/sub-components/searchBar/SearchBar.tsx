@@ -1,7 +1,9 @@
+import './searchBarStyle.css';
+
 const SearchBar = () => {
   return (
-    <form>
-      <input type='text' />
+    <form className='searchBar-form'>
+      <input className='searchBar-inputField' type='text' />
     </form>
   );
 };

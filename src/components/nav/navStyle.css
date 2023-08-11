@@ -1,0 +1,11 @@
+.nav-cnt {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 45px;
+}
+
+.nav-logo-cnt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
