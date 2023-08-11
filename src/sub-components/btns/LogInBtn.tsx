@@ -1,7 +1,14 @@
+import { BsFillPersonFill } from 'react-icons/bs';
+
+import './btnStyle.css';
+
 const LogInBtn = () => {
   return (
-    <div>
-      <button>Log In</button>
+    <div className='logInBtn-cnt'>
+      <button className='logInBtn'>
+        {' '}
+        <BsFillPersonFill /> Log In
+      </button>
     </div>
   );
 };
