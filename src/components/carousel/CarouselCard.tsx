@@ -1,4 +1,6 @@
-const CarouselCard = ({ data }) => {
+import './carouselStyle.css';
+
+const CarouselCard = ({ data }: any) => {
   return (
     <div>
       <img src={data.thumbnail} alt='thumnail' />

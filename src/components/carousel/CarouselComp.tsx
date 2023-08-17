@@ -1,6 +1,9 @@
 import { useContext } from 'react';
 import { dataContext } from '../../assets/dataProvider/DataProvider';
+
 import CarouselCard from './CarouselCard';
+
+import './carouselStyle.css';
 
 interface CarouselItem {
   id: number;
@@ -12,7 +15,7 @@ interface CarouselItem {
 const CarouselComp = () => {
   const { carouselData } = useContext(dataContext);
   return (
-    <div>
+    <div className='carouselComp-cnt'>
       {carouselData
         ? carouselData?.map((item: CarouselItem) => {
             return (
