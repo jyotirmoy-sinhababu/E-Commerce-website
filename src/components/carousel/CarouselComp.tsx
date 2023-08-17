@@ -3,8 +3,6 @@ import { dataContext } from '../../assets/dataProvider/DataProvider';
 
 import CarouselCard from './CarouselCard';
 
-import './carouselStyle.css';
-
 interface CarouselItem {
   id: number;
   brand: string;
