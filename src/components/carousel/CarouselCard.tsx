@@ -1,9 +1,7 @@
-import './carouselStyle.css';
-
 const CarouselCard = ({ data }: any) => {
   return (
-    <div>
-      <img src={data.thumbnail} alt='thumnail' />
+    <div className='carousel-item active'>
+      <img className='d-block w-100' src={data.thumbnail} alt='thumnail' />
     </div>
   );
 };

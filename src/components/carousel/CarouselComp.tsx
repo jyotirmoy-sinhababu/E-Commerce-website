@@ -13,11 +13,11 @@ interface CarouselItem {
 const CarouselComp = () => {
   const { carouselData } = useContext(dataContext);
   return (
-    <div className='carouselComp-cnt'>
+    <div className='carousel slide' data-ride='carousel'>
       {carouselData
         ? carouselData?.map((item: CarouselItem) => {
             return (
-              <div key={item.id}>
+              <div className='carousel-inner' key={item.id}>
                 <CarouselCard data={item} />
               </div>
             );
