@@ -3,6 +3,8 @@ import { dataContext } from '../../assets/dataProvider/DataProvider';
 
 import CarouselCard from './CarouselCard';
 
+import './carouselStyle.css';
+
 interface CarouselItem {
   id: number;
   brand: string;
@@ -13,11 +15,11 @@ interface CarouselItem {
 const CarouselComp = () => {
   const { carouselData } = useContext(dataContext);
   return (
-    <div className='carousel slide' data-ride='carousel'>
+    <div className='carouselComp-cnt' data-ride='carousel'>
       {carouselData
         ? carouselData?.map((item: CarouselItem) => {
             return (
-              <div className='carousel-inner' key={item.id}>
+              <div className='carouselComp-cardHolder' key={item.id}>
                 <CarouselCard data={item} />
               </div>
             );
