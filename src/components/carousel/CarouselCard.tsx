@@ -5,7 +5,7 @@ const CarouselCard = ({ data }: any) => {
 
   return (
     <div className='carouselCard-cnt'>
-      <img className='carouselImg' src={data.images[0]} alt='thumnail' />
+      <img className='carouselImg' src={data.thumbnail} alt='thumnail' />
     </div>
   );
 };
