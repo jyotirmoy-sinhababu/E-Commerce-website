@@ -1,11 +1,11 @@
+import { Outlet } from 'react-router-dom';
 import Nav from '../../components/nav/Nav';
-import Container from '../container/Container';
 
 const LandingPage = () => {
   return (
     <div>
       <Nav />
-      <Container />
+      <Outlet />
     </div>
   );
 };
