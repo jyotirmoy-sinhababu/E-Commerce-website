@@ -8,7 +8,6 @@ import { BrowserRouter } from 'react-router-dom';
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <DataProvider>
     <BrowserRouter>
-      {' '}
       <React.StrictMode>
         <App />
       </React.StrictMode>

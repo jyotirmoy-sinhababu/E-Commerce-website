@@ -3,13 +3,18 @@ import { BsSearch } from 'react-icons/bs';
 
 const SearchBar = () => {
   return (
-    <form className='searchBar-form'>
+    <form
+      onSubmit={(e: React.FormEvent) => {
+        e.preventDefault();
+      }}
+      className='searchBar-form'
+    >
       <input
         className='searchBar-inputField'
         type='text'
         placeholder='Search for products'
       />
-      <button className='searchBtn'>
+      <button type='submit' className='searchBtn'>
         <BsSearch />
       </button>
     </form>
