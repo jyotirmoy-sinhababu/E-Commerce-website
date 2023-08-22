@@ -11,6 +11,7 @@ const DataProvider = ({ children }: any) => {
   useEffect(() => {
     fetchCarouselData();
   }, []);
+
   //// Carousel data fetched
   const fetchCarouselData = async () => {
     try {
@@ -30,8 +31,6 @@ const DataProvider = ({ children }: any) => {
     });
     setCarouselDtls(filtereddata);
   };
-
-  console.log(carouselDtls);
 
   return (
     <dataContext.Provider
