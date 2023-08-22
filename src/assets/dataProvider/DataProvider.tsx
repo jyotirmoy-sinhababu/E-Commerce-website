@@ -6,11 +6,12 @@ export const dataContext = createContext<any>('');
 
 const DataProvider = ({ children }: any) => {
   const [carouselData, setCarouselData] = useState<[]>();
+  const [carouselDtls, setCarouselDtls] = useState<object>();
 
   useEffect(() => {
     fetchCarouselData();
   }, []);
-
+  //// Carousel data fetched
   const fetchCarouselData = async () => {
     try {
       await axios.get('https://dummyjson.com/products?limit=10').then((res) => {
@@ -22,8 +23,20 @@ const DataProvider = ({ children }: any) => {
     }
   };
 
+  // carousel details page
+  const filterCarouselDtls = (Id: number) => {
+    const filtereddata = carouselData?.filter((item: any) => {
+      return item.id == Id;
+    });
+    setCarouselDtls(filtereddata);
+  };
+
+  console.log(carouselDtls);
+
   return (
-    <dataContext.Provider value={{ carouselData }}>
+    <dataContext.Provider
+      value={{ carouselData, carouselDtls, filterCarouselDtls }}
+    >
       {children}
     </dataContext.Provider>
   );

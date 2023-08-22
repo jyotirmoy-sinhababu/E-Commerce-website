@@ -13,13 +13,19 @@ interface CarouselItem {
 }
 
 const CarouselComp = () => {
-  const { carouselData } = useContext(dataContext);
+  const { carouselData, filterCarouselDtls } = useContext(dataContext);
   return (
     <div className='carouselComp-cnt' data-ride='carousel'>
       {carouselData
         ? carouselData?.map((item: CarouselItem) => {
             return (
-              <div className='carouselComp-cardHolder' key={item.id}>
+              <div
+                onClick={() => {
+                  filterCarouselDtls(item.id);
+                }}
+                className='carouselComp-cardHolder'
+                key={item.id}
+              >
                 <CarouselCard data={item} />
               </div>
             );
