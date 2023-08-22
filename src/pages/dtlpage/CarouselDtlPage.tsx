@@ -1,6 +1,8 @@
 import { useContext, useState } from 'react';
 import { dataContext } from '../../assets/dataProvider/DataProvider';
 
+import './carouselDtlPageStyle.css';
+
 const CarouselDtlPage = () => {
   const { carouselDtls } = useContext(dataContext);
 
@@ -19,13 +21,14 @@ const CarouselDtlPage = () => {
   };
 
   return (
-    <div>
-      <div>
+    <div className='carouselDtl-cnt'>
+      <div className='img-btnsCnt'>
         {carouselDtls
           ? carouselDtls[0]?.images?.map((item: string, index: number) => {
               return (
                 <div key={index}>
                   <img
+                    className='img-btns'
                     src={item}
                     alt=''
                     onClick={() => {

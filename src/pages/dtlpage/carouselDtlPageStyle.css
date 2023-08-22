@@ -1,0 +1,17 @@
+.carouselDtl-cnt {
+  display: flex;
+  gap: 40px;
+  padding: 80px;
+}
+
+.img-btnsCnt {
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.img-btns {
+  width: 100px;
+  height: 80px;
+}
