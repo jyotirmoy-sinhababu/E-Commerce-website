@@ -15,3 +15,25 @@
   width: 100px;
   height: 80px;
 }
+
+.rating-cnt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  width: 45px;
+  height: 18px;
+}
+
+.rating {
+  color: goldenrod;
+  font-weight: 600;
+}
+
+.star {
+  color: goldenrod;
+}
+
+.price {
+  font-size: 46px;
+}

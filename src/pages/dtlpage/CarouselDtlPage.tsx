@@ -1,13 +1,14 @@
 import { useContext, useState } from 'react';
 import { dataContext } from '../../assets/dataProvider/DataProvider';
 
+import { AiTwotoneStar } from 'react-icons/ai';
+
 import './carouselDtlPageStyle.css';
 
 const CarouselDtlPage = () => {
   const { carouselDtls } = useContext(dataContext);
 
   const [filterImg, setFIlterImg] = useState<string>();
-  console.log(filterImg);
 
   const handleImgClick = (i: number) => {
     const filteredData = carouselDtls[0]?.images?.filter(
@@ -42,7 +43,10 @@ const CarouselDtlPage = () => {
       </div>
       <div>
         {filterImg ? (
-          <img src={filterImg} alt='img' />
+          <div>
+            <img src={filterImg} alt='img' />
+            <p>{carouselDtls[0].description}</p>
+          </div>
         ) : (
           <div>
             {/* {carouselDtls ? (
@@ -52,8 +56,24 @@ const CarouselDtlPage = () => {
             ) : (
               <p>No image found</p>
             )} */}
+            <img src={carouselDtls[0].thumbnail} alt='' />
           </div>
         )}
+      </div>
+      <div>
+        <div>
+          <h2>{carouselDtls[0].title}</h2>
+          <p>by {carouselDtls[0].brand}</p>
+        </div>
+        <div className='rating-cnt'>
+          <p className='rating'>{carouselDtls[0].rating}</p>
+          <p className='star'>
+            <AiTwotoneStar />
+          </p>
+        </div>
+        <div>
+          <p className='price'>{carouselDtls[0].price}</p>
+        </div>
       </div>
     </div>
   );
