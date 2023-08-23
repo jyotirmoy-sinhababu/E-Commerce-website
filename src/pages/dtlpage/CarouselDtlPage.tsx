@@ -44,7 +44,15 @@ const CarouselDtlPage = () => {
         {filterImg ? (
           <img src={filterImg} alt='img' />
         ) : (
-          <img src='https://i.dummyjson.com/data/products/1/3.jpg' alt='img' />
+          <div>
+            {/* {carouselDtls ? (
+              carouselDtls[0].map((item: any) => {
+                return <img src={item.thumbnail} alt='img' />;
+              })
+            ) : (
+              <p>No image found</p>
+            )} */}
+          </div>
         )}
       </div>
     </div>
