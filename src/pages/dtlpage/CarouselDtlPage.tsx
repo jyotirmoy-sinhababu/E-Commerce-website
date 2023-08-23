@@ -2,6 +2,9 @@ import { useContext, useState } from 'react';
 import { dataContext } from '../../assets/dataProvider/DataProvider';
 
 import { AiTwotoneStar } from 'react-icons/ai';
+import { ImSad2 } from 'react-icons/im';
+import { IoMdAdd } from 'react-icons/io';
+import { GrSubtract } from 'react-icons/gr';
 
 import './carouselDtlPageStyle.css';
 
@@ -9,6 +12,8 @@ const CarouselDtlPage = () => {
   const { carouselDtls } = useContext(dataContext);
 
   const [filterImg, setFIlterImg] = useState<string>();
+
+  const [count, setCount] = useState<number>(1);
 
   const handleImgClick = (i: number) => {
     const filteredData = carouselDtls[0]?.images?.filter(
@@ -19,6 +24,18 @@ const CarouselDtlPage = () => {
       }
     );
     setFIlterImg(filteredData);
+  };
+
+  const addCount = () => {
+    if (count >= 1) {
+      setCount(count + 1);
+    }
+  };
+
+  const subCount = () => {
+    if (count != 1) {
+      setCount(count - 1);
+    }
   };
 
   return (
@@ -45,36 +62,74 @@ const CarouselDtlPage = () => {
         {filterImg ? (
           <div>
             <img src={filterImg} alt='img' />
-            <p>{carouselDtls[0].description}</p>
           </div>
         ) : (
           <div>
-            {/* {carouselDtls ? (
-              carouselDtls[0].map((item: any) => {
-                return <img src={item.thumbnail} alt='img' />;
-              })
+            {carouselDtls ? (
+              <img src={carouselDtls[0].thumbnail} alt='' />
             ) : (
               <p>No image found</p>
-            )} */}
-            <img src={carouselDtls[0].thumbnail} alt='' />
+            )}
           </div>
         )}
+        <div className='countBtn-cnt'>
+          <button
+            className='countBtn'
+            onClick={() => {
+              subCount();
+            }}
+          >
+            <GrSubtract />
+          </button>
+          <p>{count}</p>
+          <button
+            className='countBtn'
+            onClick={() => {
+              addCount();
+            }}
+          >
+            <IoMdAdd />
+          </button>
+        </div>
       </div>
-      <div>
+      {carouselDtls ? (
         <div>
-          <h2>{carouselDtls[0].title}</h2>
-          <p>by {carouselDtls[0].brand}</p>
+          <div>
+            <h2>{carouselDtls[0].title}</h2>
+            <p>by {carouselDtls[0].brand}</p>
+          </div>
+          <div className='rating-cnt'>
+            <p className='rating'>{carouselDtls[0].rating}</p>
+            <p className='star'>
+              <AiTwotoneStar />
+            </p>
+          </div>
+          <div>
+            <div>
+              {' '}
+              <p className='price'>
+                $
+                {(
+                  (carouselDtls[0].price -
+                    (carouselDtls[0].discountPercentage / 100) *
+                      carouselDtls[0].price) *
+                  count
+                ).toFixed(2)}
+              </p>
+            </div>
+            <div>
+              <p>
+                {carouselDtls[0].discountPercentage}% discount on{' '}
+                {carouselDtls[0].price}
+              </p>
+            </div>
+          </div>
         </div>
-        <div className='rating-cnt'>
-          <p className='rating'>{carouselDtls[0].rating}</p>
-          <p className='star'>
-            <AiTwotoneStar />
-          </p>
-        </div>
-        <div>
-          <p className='price'>{carouselDtls[0].price}</p>
-        </div>
-      </div>
+      ) : (
+        <p>
+          <ImSad2 />
+        </p>
+      )}
     </div>
   );
 };
