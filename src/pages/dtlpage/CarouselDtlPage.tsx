@@ -85,7 +85,9 @@ const CarouselDtlPage = () => {
           <button
             className='countBtn'
             onClick={() => {
-              addCount();
+              if (carouselDtls[0].stock != count) {
+                addCount();
+              }
             }}
           >
             <IoMdAdd />
@@ -122,6 +124,9 @@ const CarouselDtlPage = () => {
                 {carouselDtls[0].discountPercentage}% discount on{' '}
                 {carouselDtls[0].price}
               </p>
+            </div>
+            <div>
+              <p>Available stock :{carouselDtls[0].stock - count}</p>
             </div>
           </div>
         </div>

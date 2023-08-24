@@ -17,8 +17,7 @@ const CarouselComp = () => {
   const { carouselData, filterCarouselDtls } = useContext(dataContext);
 
   const navigate = useNavigate();
-  const param = { data: filterCarouselDtls };
-
+  const param = { data: carouselData };
   return (
     <div className='carouselComp-cnt' data-ride='carousel'>
       {carouselData
