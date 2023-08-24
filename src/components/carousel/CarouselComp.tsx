@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { dataContext } from '../../assets/dataProvider/DataProvider';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, createSearchParams } from 'react-router-dom';
 
 import CarouselCard from './CarouselCard';
 
@@ -15,7 +15,10 @@ interface CarouselItem {
 
 const CarouselComp = () => {
   const { carouselData, filterCarouselDtls } = useContext(dataContext);
+
   const navigate = useNavigate();
+  const param = { data: filterCarouselDtls };
+
   return (
     <div className='carouselComp-cnt' data-ride='carousel'>
       {carouselData
@@ -24,7 +27,10 @@ const CarouselComp = () => {
               <div
                 onClick={() => {
                   filterCarouselDtls(item.id);
-                  navigate('/carouselDtl');
+                  navigate({
+                    pathname: '/carouselDtl',
+                    search: `?${createSearchParams(param)}`,
+                  });
                 }}
                 className='carouselComp-cardHolder'
                 key={item.id}
