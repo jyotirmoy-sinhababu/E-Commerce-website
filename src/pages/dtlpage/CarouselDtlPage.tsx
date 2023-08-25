@@ -60,8 +60,8 @@ const CarouselDtlPage = () => {
       </div>
       <div>
         {filterImg ? (
-          <div>
-            <img src={filterImg} alt='img' />
+          <div className=''>
+            <img className='filterImg' src={filterImg} alt='img' />
           </div>
         ) : (
           <div>
@@ -128,6 +128,10 @@ const CarouselDtlPage = () => {
             <div>
               <p>Available stock :{carouselDtls[0].stock - count}</p>
             </div>
+          </div>
+          <div className='cart-order-BtnCnt'>
+            <button className='orderBtn'>Order</button>
+            <button className='Addto-cartBtn'>Add to cart</button>
           </div>
         </div>
       ) : (
