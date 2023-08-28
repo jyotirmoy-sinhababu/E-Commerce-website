@@ -1,11 +1,14 @@
 import { NavLink } from 'react-bootstrap';
+import './loginComp.css';
 
 const LogInComp = () => {
   return (
-    <div>
+    <div className='login-cnt'>
       <div>
         <div>
-          <p>Login</p>
+          <div>
+            <p>Login</p>
+          </div>
           <p>All yours order are here</p>
         </div>
         <form>
@@ -13,7 +16,7 @@ const LogInComp = () => {
           <input className='' type='email' />
           <label>Your password</label>
           <input className='' type='password' />
-          <button>Login</button>
+          <button type='submit'>Login</button>
         </form>
       </div>
       <div>

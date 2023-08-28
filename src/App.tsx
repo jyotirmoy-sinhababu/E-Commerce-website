@@ -5,6 +5,7 @@ import Container from './pages/container/Container';
 
 import { Routes, Route } from 'react-router-dom';
 import CarouselDtlPage from './pages/dtlpage/CarouselDtlPage';
+import LogInComp from './components/authComp/logInComp/LogInComp';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path='/' element={<LandingPage />}>
           <Route index element={<Container />} />
           <Route path='carouselDtl' element={<CarouselDtlPage />} />
+          <Route path='login' element={<LogInComp />} />
         </Route>
       </Routes>
     </>
