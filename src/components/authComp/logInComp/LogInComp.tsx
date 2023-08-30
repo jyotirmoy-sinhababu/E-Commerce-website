@@ -4,7 +4,7 @@ import './loginComp.css';
 const LogInComp = () => {
   return (
     <div className='login-cnt'>
-      <div>
+      <div className='login-txt-cnt'>
         <div>
           <div>
             <p>Login</p>
