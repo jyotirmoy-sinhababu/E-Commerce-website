@@ -11,11 +11,11 @@ const LogInComp = () => {
           </div>
           <p>All yours order are here</p>
         </div>
-        <form>
+        <form className='form-cnt'>
           <label>Your email</label>
-          <input className='' type='email' />
+          <input className='email' type='email' />
           <label>Your password</label>
-          <input className='' type='password' />
+          <input className='password' type='password' />
           <button type='submit'>Login</button>
         </form>
       </div>
