@@ -6,22 +6,25 @@ const LogInComp = () => {
     <div className='login-cnt'>
       <div className='login-txt-cnt'>
         <div>
-          <div>
-            <p>Login</p>
+          <div className=''>
+            <p className='login-txt'>Login</p>
           </div>
-          <p>All yours order are here</p>
         </div>
         <form className='form-cnt'>
           <label>Your email</label>
-          <input className='email' type='email' />
+          <input className='inputField' type='email' />
           <label>Your password</label>
-          <input className='password' type='password' />
-          <button type='submit'>Login</button>
+          <input className='inputField' type='password' />
+          <div className='logInBtn-cnt'>
+            <button className='logIn-btn' type='submit'>
+              Login
+            </button>
+          </div>
         </form>
       </div>
-      <div>
-        <p>Your first time?</p>
-        <NavLink>Sign up</NavLink>
+      <div className='route-btn-cnt'>
+        <p className='route-txt'>Your first time?</p>
+        <NavLink className='signUp-route'>Sign up</NavLink>
       </div>
     </div>
   );
