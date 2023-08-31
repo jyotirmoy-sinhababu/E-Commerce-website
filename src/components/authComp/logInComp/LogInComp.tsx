@@ -1,4 +1,5 @@
-import { NavLink } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
+
 import './loginComp.css';
 
 const LogInComp = () => {
@@ -19,7 +20,9 @@ const LogInComp = () => {
       </div>
       <div className='route-btn-cnt'>
         <p className='route-txt'>Your first time?</p>
-        <NavLink className='signUp-route'>Sign up</NavLink>
+        <NavLink to='/signUp' className='signUp-route'>
+          Sign up
+        </NavLink>
       </div>
     </div>
   );

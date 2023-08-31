@@ -16,7 +16,7 @@ function App() {
           <Route index element={<Container />} />
           <Route path='carouselDtl' element={<CarouselDtlPage />} />
           <Route path='login' element={<LogInComp />} />
-          <Route path='signup' element={<SignUpComp />} />
+          <Route path='signUp' element={<SignUpComp />} />
         </Route>
       </Routes>
     </>
