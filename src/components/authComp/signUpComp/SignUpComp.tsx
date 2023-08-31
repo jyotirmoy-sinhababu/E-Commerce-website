@@ -1,12 +1,14 @@
+import './signUpComp.css';
+
 const SignUpComp = () => {
   return (
-    <div>
-      <form>
-        <input type='text' />
-        <input type='email' />
-        <input type='password' />
-        <div>
-          <button>SignUp</button>
+    <div className='signUp-form-cnt'>
+      <form className='signUp-form'>
+        <input className='signUp-field' type='text' />
+        <input className='signUp-field' type='email' />
+        <input className='signUp-field' type='password' />
+        <div className='signUpBtn-cnt'>
+          <button className='signUpBtn'>SignUp</button>
         </div>
       </form>
     </div>
