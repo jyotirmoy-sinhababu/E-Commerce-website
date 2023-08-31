@@ -5,11 +5,6 @@ const LogInComp = () => {
   return (
     <div className='login-cnt'>
       <div className='login-txt-cnt'>
-        <div>
-          <div className=''>
-            <p className='login-txt'>Login</p>
-          </div>
-        </div>
         <form className='form-cnt'>
           <label>Your email</label>
           <input className='inputField' type='email' />
