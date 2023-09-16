@@ -1,8 +1,5 @@
 import { useState } from 'react';
 
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../../assets/firebaseConfig/Firebase';
-
 import './signUpComp.css';
 
 const SignUpComp = () => {
@@ -34,15 +31,6 @@ const SignUpComp = () => {
     } else if (!/^.{8}$/.test(signInput.password)) {
       setErr({ ...err, passwordEr: '* Wrong format' });
     } else {
-      createUserWithEmailAndPassword(auth, signInput.email, signInput.password)
-        .then((userCredential) => {
-          const user = userCredential.user;
-          console.log('running');
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-        });
     }
   };
 
