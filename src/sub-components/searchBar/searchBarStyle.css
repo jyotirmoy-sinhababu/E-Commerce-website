@@ -2,7 +2,7 @@
   width: 650px;
   display: flex;
   align-items: center;
-  background-color: aliceblue;
+  background-color: rgb(232, 237, 241);
 }
 
 .searchBar-inputField {
