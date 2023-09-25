@@ -14,7 +14,7 @@ interface CarouselItem {
 }
 
 const CarouselComp = () => {
-  const { carouselData, filterCarouselDtls } = useContext(dataContext);
+  // const { carouselData, filterCarouselDtls } = useContext(dataContext);
 
   const navigate = useNavigate();
   const param = { data: carouselData };
