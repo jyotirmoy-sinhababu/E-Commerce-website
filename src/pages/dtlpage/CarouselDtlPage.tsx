@@ -1,5 +1,4 @@
-import { useContext, useState } from 'react';
-// import { dataContext } from '../../assets/dataProvider/DataProvider';
+import { useState } from 'react';
 
 import { AiTwotoneStar } from 'react-icons/ai';
 import { ImSad2 } from 'react-icons/im';
@@ -9,22 +8,20 @@ import { GrSubtract } from 'react-icons/gr';
 import './carouselDtlPageStyle.css';
 
 const CarouselDtlPage = () => {
-  // const { carouselDtls } = useContext(dataContext);
-
   const [filterImg, setFIlterImg] = useState<string>();
 
   const [count, setCount] = useState<number>(1);
 
-  const handleImgClick = (i: number) => {
-    const filteredData = carouselDtls[0]?.images?.filter(
-      (item: string, index: number) => {
-        if (index == i) {
-          return item;
-        }
-      }
-    );
-    setFIlterImg(filteredData);
-  };
+  // const handleImgClick = (i: number) => {
+  //   const filteredData = carouselDtls[0]?.images?.filter(
+  //     (item: string, index: number) => {
+  //       if (index == i) {
+  //         return item;
+  //       }
+  //     }
+  //   );
+  //   setFIlterImg(filteredData);
+  // };
 
   const addCount = () => {
     if (count >= 1) {

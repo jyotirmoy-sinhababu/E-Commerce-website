@@ -1,7 +1,9 @@
-// import { useContext } from 'react';
-// import { dataContext } from '../../assets/dataProvider/DataProvider';
 import { useNavigate, createSearchParams } from 'react-router-dom';
+
 import { useGetCarouselByNameQuery } from '../../assets/slice/CarouselSlice';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { carouselDtlsFiltered } from '../../assets/slice/CarouselDtlsSlice';
 
 import CarouselCard from './CarouselCard';
 
@@ -15,13 +17,19 @@ interface CarouselItem {
 }
 
 const CarouselComp = () => {
-  // const { carouselData, filterCarouselDtls } = useContext(dataContext);
+  const navigate = useNavigate();
+
+  const carouselDtlsData = useSelector(
+    (state: any) => state.carouselDtls.carouselDtlsData
+  );
+
+  const dispatch = useDispatch();
 
   const { data } = useGetCarouselByNameQuery('');
   console.log(data);
 
-  const navigate = useNavigate();
   const param = { data: data };
+
   return (
     <div className='carouselComp-cnt' data-ride='carousel'>
       {data
@@ -29,7 +37,7 @@ const CarouselComp = () => {
             return (
               <div
                 onClick={() => {
-                  // filterCarouselDtls(item.id);
+                  dispatch(carouselDtlsFiltered(item.id));
                   // navigate({
                   //   pathname: '/carouselDtl',
                   //   search: `?${createSearchParams(param)}`,
