@@ -1,6 +1,7 @@
-import { useContext } from 'react';
-import { dataContext } from '../../assets/dataProvider/DataProvider';
+// import { useContext } from 'react';
+// import { dataContext } from '../../assets/dataProvider/DataProvider';
 import { useNavigate, createSearchParams } from 'react-router-dom';
+import { useGetCarouselByNameQuery } from '../../assets/slice/CarouselSlice';
 
 import CarouselCard from './CarouselCard';
 
@@ -16,20 +17,23 @@ interface CarouselItem {
 const CarouselComp = () => {
   // const { carouselData, filterCarouselDtls } = useContext(dataContext);
 
+  const { data } = useGetCarouselByNameQuery('');
+  console.log(data);
+
   const navigate = useNavigate();
-  const param = { data: carouselData };
+  const param = { data: data };
   return (
     <div className='carouselComp-cnt' data-ride='carousel'>
-      {carouselData
-        ? carouselData?.map((item: CarouselItem) => {
+      {data
+        ? data.products?.map((item: CarouselItem) => {
             return (
               <div
                 onClick={() => {
-                  filterCarouselDtls(item.id);
-                  navigate({
-                    pathname: '/carouselDtl',
-                    search: `?${createSearchParams(param)}`,
-                  });
+                  // filterCarouselDtls(item.id);
+                  // navigate({
+                  //   pathname: '/carouselDtl',
+                  //   search: `?${createSearchParams(param)}`,
+                  // });
                 }}
                 className='carouselComp-cardHolder'
                 key={item.id}

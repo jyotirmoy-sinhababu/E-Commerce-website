@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const carouselApi = createApi({
   reducerPath: 'carouselApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://dummyjson.com/products?limit=10',
+    baseUrl: 'https://dummyjson.com/',
   }),
   endpoints: (builder) => ({
     getCarouselByName: builder.query({

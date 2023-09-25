@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { dataContext } from '../../assets/dataProvider/DataProvider';
+// import { dataContext } from '../../assets/dataProvider/DataProvider';
 
 import { AiTwotoneStar } from 'react-icons/ai';
 import { ImSad2 } from 'react-icons/im';
@@ -9,7 +9,7 @@ import { GrSubtract } from 'react-icons/gr';
 import './carouselDtlPageStyle.css';
 
 const CarouselDtlPage = () => {
-  const { carouselDtls } = useContext(dataContext);
+  // const { carouselDtls } = useContext(dataContext);
 
   const [filterImg, setFIlterImg] = useState<string>();
 
