@@ -44,6 +44,7 @@ const CarouselComp = () => {
             return (
               <div
                 onClick={() => {
+                  filterCarouselData(item.id);
                   // navigate({
                   //   pathname: '/carouselDtl',
                   //   search: `?${createSearchParams(param)}`,
