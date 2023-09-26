@@ -1,143 +1,146 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 
-// import { AiTwotoneStar } from 'react-icons/ai';
-// import { ImSad2 } from 'react-icons/im';
-// import { IoMdAdd } from 'react-icons/io';
-// import { GrSubtract } from 'react-icons/gr';
+import { useLocation } from 'react-router-dom';
 
-// import './carouselDtlPageStyle.css';
+import { AiTwotoneStar } from 'react-icons/ai';
+import { ImSad2 } from 'react-icons/im';
+import { IoMdAdd } from 'react-icons/io';
+import { GrSubtract } from 'react-icons/gr';
 
-// const CarouselDtlPage = () => {
-//   const [filterImg, setFIlterImg] = useState<string>();
+import './carouselDtlPageStyle.css';
 
-//   const [count, setCount] = useState<number>(1);
+const CarouselDtlPage = () => {
+  const [filterImg, setFIlterImg] = useState<string>();
+  const location = useLocation();
+  const data = location.state;
 
-//   // const handleImgClick = (i: number) => {
-//   //   const filteredData = carouselDtls[0]?.images?.filter(
-//   //     (item: string, index: number) => {
-//   //       if (index == i) {
-//   //         return item;
-//   //       }
-//   //     }
-//   //   );
-//   //   setFIlterImg(filteredData);
-//   // };
+  const [count, setCount] = useState<number>(1);
 
-//   const addCount = () => {
-//     if (count >= 1) {
-//       setCount(count + 1);
-//     }
-//   };
+  const handleImgClick = (i: number) => {
+    const filteredData = data[0]?.images?.filter(
+      (item: string, index: number) => {
+        if (index == i) {
+          return item;
+        }
+      }
+    );
+    setFIlterImg(filteredData);
+  };
 
-//   const subCount = () => {
-//     if (count != 1) {
-//       setCount(count - 1);
-//     }
-//   };
+  const addCount = () => {
+    if (count >= 1) {
+      setCount(count + 1);
+    }
+  };
 
-//   return (
-//     <div className='carouselDtl-cnt'>
-//       <div className='img-btnsCnt'>
-//         {carouselDtls
-//           ? carouselDtls[0]?.images?.map((item: string, index: number) => {
-//               return (
-//                 <div key={index}>
-//                   <img
-//                     className='img-btns'
-//                     src={item}
-//                     alt=''
-//                     onClick={() => {
-//                       handleImgClick(index);
-//                     }}
-//                   />
-//                 </div>
-//               );
-//             })
-//           : null}
-//       </div>
-//       <div>
-//         {filterImg ? (
-//           <div className=''>
-//             <img className='filterImg' src={filterImg} alt='img' />
-//           </div>
-//         ) : (
-//           <div>
-//             {carouselDtls ? (
-//               <img src={carouselDtls[0].thumbnail} alt='' />
-//             ) : (
-//               <p>No image found</p>
-//             )}
-//           </div>
-//         )}
-//         <div className='countBtn-cnt'>
-//           <button
-//             className='countBtn'
-//             onClick={() => {
-//               subCount();
-//             }}
-//           >
-//             <GrSubtract />
-//           </button>
-//           <p>{count}</p>
-//           <button
-//             className='countBtn'
-//             onClick={() => {
-//               if (carouselDtls[0].stock != count) {
-//                 addCount();
-//               }
-//             }}
-//           >
-//             <IoMdAdd />
-//           </button>
-//         </div>
-//       </div>
-//       {carouselDtls ? (
-//         <div>
-//           <div>
-//             <h2>{carouselDtls[0].title}</h2>
-//             <p>by {carouselDtls[0].brand}</p>
-//           </div>
-//           <div className='rating-cnt'>
-//             <p className='rating'>{carouselDtls[0].rating}</p>
-//             <p className='star'>
-//               <AiTwotoneStar />
-//             </p>
-//           </div>
-//           <div>
-//             <div>
-//               {' '}
-//               <p className='price'>
-//                 $
-//                 {(
-//                   (carouselDtls[0].price -
-//                     (carouselDtls[0].discountPercentage / 100) *
-//                       carouselDtls[0].price) *
-//                   count
-//                 ).toFixed(2)}
-//               </p>
-//             </div>
-//             <div>
-//               <p>
-//                 {carouselDtls[0].discountPercentage}% discount on{' '}
-//                 {carouselDtls[0].price}
-//               </p>
-//             </div>
-//             <div>
-//               <p>Available stock :{carouselDtls[0].stock - count}</p>
-//             </div>
-//           </div>
-//           <div className='cart-order-BtnCnt'>
-//             <button className='orderBtn'>Order</button>
-//             <button className='Addto-cartBtn'>Add to cart</button>
-//           </div>
-//         </div>
-//       ) : (
-//         <p>
-//           <ImSad2 />
-//         </p>
-//       )}
-//     </div>
-//   );
-// };
+  const subCount = () => {
+    if (count != 1) {
+      setCount(count - 1);
+    }
+  };
 
-// export default CarouselDtlPage;
+  return (
+    // <div className='carouselDtl-cnt'>
+    //   <div className='img-btnsCnt'>
+    //     {data
+    //       ? data[0]?.images?.map((item: string, index: number) => {
+    //           return (
+    //             <div key={index}>
+    //               <img
+    //                 className='img-btns'
+    //                 src={item}
+    //                 alt=''
+    //                 onClick={() => {
+    //                   handleImgClick(index);
+    //                 }}
+    //               />
+    //             </div>
+    //           );
+    //         })
+    //       : null}
+    //   </div>
+    //   <div>
+    //     {filterImg ? (
+    //       <div className=''>
+    //         <img className='filterImg' src={filterImg} alt='img' />
+    //       </div>
+    //     ) : (
+    //       <div>
+    //         {data ? (
+    //           <img src={data[0].thumbnail} alt='' />
+    //         ) : (
+    //           <p>No image found</p>
+    //         )}
+    //       </div>
+    //     )}
+    //     <div className='countBtn-cnt'>
+    //       <button
+    //         className='countBtn'
+    //         onClick={() => {
+    //           subCount();
+    //         }}
+    //       >
+    //         <GrSubtract />
+    //       </button>
+    //       <p>{count}</p>
+    //       <button
+    //         className='countBtn'
+    //         onClick={() => {
+    //           if (data[0].stock != count) {
+    //             addCount();
+    //           }
+    //         }}
+    //       >
+    //         <IoMdAdd />
+    //       </button>
+    //     </div>
+    //   </div>
+    //   {data ? (
+    //     <div>
+    //       <div>
+    //         <h2>{data[0].title}</h2>
+    //         <p>by {data[0].brand}</p>
+    //       </div>
+    //       <div className='rating-cnt'>
+    //         <p className='rating'>{data[0].rating}</p>
+    //         <p className='star'>
+    //           <AiTwotoneStar />
+    //         </p>
+    //       </div>
+    //       <div>
+    //         <div>
+    //           {' '}
+    //           <p className='price'>
+    //             $
+    //             {(
+    //               (data[0].price -
+    //                 (data[0].discountPercentage / 100) * data[0].price) *
+    //               count
+    //             ).toFixed(2)}
+    //           </p>
+    //         </div>
+    //         <div>
+    //           <p>
+    //             {data[0].discountPercentage}% discount on {data[0].price}
+    //           </p>
+    //         </div>
+    //         <div>
+    //           <p>Available stock :{data[0].stock - count}</p>
+    //         </div>
+    //       </div>
+    //       <div className='cart-order-BtnCnt'>
+    //         <button className='orderBtn'>Order</button>
+    //         <button className='Addto-cartBtn'>Add to cart</button>
+    //       </div>
+    //     </div>
+    //   ) : (
+    //     <p>
+    //       <ImSad2 />
+    //     </p>
+    //   )}
+    // </div>
+    <div></div>
+  );
+};
+
+export default CarouselDtlPage;

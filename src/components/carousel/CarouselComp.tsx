@@ -2,9 +2,6 @@ import { useNavigate, createSearchParams } from 'react-router-dom';
 
 import { useGetCarouselByNameQuery } from '../../assets/slice/CarouselSlice';
 
-import { useDispatch } from 'react-redux';
-import carouselDtlsReducer from '../../assets/slice/CarouselDtlsSlice';
-
 import { useState } from 'react';
 
 import CarouselCard from './CarouselCard';
@@ -19,23 +16,21 @@ interface CarouselItem {
 }
 
 const CarouselComp = () => {
-  const [carouselData, setCarouselData] = useState();
+  const [carouselFilterData, setCarouselFilterData] = useState<object>();
+
+  const { data } = useGetCarouselByNameQuery('');
 
   const navigate = useNavigate();
 
-  const dispatch = useDispatch();
-
-  const { data } = useGetCarouselByNameQuery('');
-  console.log(data);
-
-  const param = { data: data };
-
   const filterCarouselData = (Id: number) => {
-    const filteredData = data.filter((item: any) => {
-      item.id = Id;
+    const filteredData = data.products?.filter((item: any) => {
+      return item.id == Id;
     });
-    setCarouselData(filteredData);
+
+    setCarouselFilterData(filteredData);
   };
+
+  console.log(carouselFilterData);
 
   return (
     <div className='carouselComp-cnt' data-ride='carousel'>
@@ -45,10 +40,7 @@ const CarouselComp = () => {
               <div
                 onClick={() => {
                   filterCarouselData(item.id);
-                  // navigate({
-                  //   pathname: '/carouselDtl',
-                  //   search: `?${createSearchParams(param)}`,
-                  // });
+                  navigate('/carouselDtl', { state: carouselFilterData });
                 }}
                 className='carouselComp-cardHolder'
                 key={item.id}
