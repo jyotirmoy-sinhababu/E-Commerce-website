@@ -25,6 +25,13 @@ const CarouselComp = () => {
 
   const param = { data: data };
 
+  const filterCarouselData = (Id: number) => {
+    const filteredData = data.filter((item: any) => {
+      item.id = Id;
+    });
+    return filteredData;
+  };
+
   return (
     <div className='carouselComp-cnt' data-ride='carousel'>
       {data
