@@ -3,7 +3,6 @@ import { useNavigate, createSearchParams } from 'react-router-dom';
 import { useGetCarouselByNameQuery } from '../../assets/slice/CarouselSlice';
 
 import { useDispatch } from 'react-redux';
-import { carouselDtlsFiltered } from '../../assets/slice/CarouselDtlsSlice';
 
 import CarouselCard from './CarouselCard';
 
@@ -19,10 +18,6 @@ interface CarouselItem {
 const CarouselComp = () => {
   const navigate = useNavigate();
 
-  // const carouselDtlsData = useSelector(
-  //   (state: any) => state.carouselDtls.carouselDtlsData
-  // );
-
   const dispatch = useDispatch();
 
   const { data } = useGetCarouselByNameQuery('');
@@ -37,7 +32,6 @@ const CarouselComp = () => {
             return (
               <div
                 onClick={() => {
-                  dispatch(carouselDtlsFiltered(item.id));
                   // navigate({
                   //   pathname: '/carouselDtl',
                   //   search: `?${createSearchParams(param)}`,
