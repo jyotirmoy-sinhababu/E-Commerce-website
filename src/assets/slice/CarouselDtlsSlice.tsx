@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const CarouselDtlsSlice = createSlice({
   name: 'carouselDtlsSliceData',
-  initialState: { carouselDtlsSliceData: [] },
+  initialState: { carouselDtlsSliceData: [] as any },
   reducers: {
     carouselDtlsReducer: (state, action) => {
       state = action.payload;
