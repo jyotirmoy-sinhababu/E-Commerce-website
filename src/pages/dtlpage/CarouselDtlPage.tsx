@@ -14,16 +14,16 @@ const CarouselDtlPage = () => {
   const location = useLocation();
   const data = location.state;
 
+  console.log(data);
+
   const [count, setCount] = useState<number>(1);
 
   const handleImgClick = (i: number) => {
-    const filteredData = data[0]?.images?.filter(
-      (item: string, index: number) => {
-        if (index == i) {
-          return item;
-        }
+    const filteredData = data?.images?.filter((item: string, index: number) => {
+      if (index == i) {
+        return item;
       }
-    );
+    });
     setFIlterImg(filteredData);
   };
 
@@ -43,7 +43,7 @@ const CarouselDtlPage = () => {
     <div className='carouselDtl-cnt'>
       <div className='img-btnsCnt'>
         {data
-          ? data[0]?.images?.map((item: string, index: number) => {
+          ? data?.images?.map((item: string, index: number) => {
               return (
                 <div key={index}>
                   <img
@@ -66,11 +66,7 @@ const CarouselDtlPage = () => {
           </div>
         ) : (
           <div>
-            {data ? (
-              <img src={data[0].thumbnail} alt='' />
-            ) : (
-              <p>No image found</p>
-            )}
+            {data ? <img src={data.thumbnail} alt='' /> : <p>No image found</p>}
           </div>
         )}
         <div className='countBtn-cnt'>
@@ -86,7 +82,7 @@ const CarouselDtlPage = () => {
           <button
             className='countBtn'
             onClick={() => {
-              if (data[0].stock != count) {
+              if (data.stock != count) {
                 addCount();
               }
             }}
@@ -98,11 +94,11 @@ const CarouselDtlPage = () => {
       {data ? (
         <div>
           <div>
-            <h2>{data[0].title}</h2>
-            <p>by {data[0].brand}</p>
+            <h2>{data.title}</h2>
+            <p>by {data.brand}</p>
           </div>
           <div className='rating-cnt'>
-            <p className='rating'>{data[0].rating}</p>
+            <p className='rating'>{data.rating}</p>
             <p className='star'>
               <AiTwotoneStar />
             </p>
@@ -113,19 +109,18 @@ const CarouselDtlPage = () => {
               <p className='price'>
                 $
                 {(
-                  (data[0].price -
-                    (data[0].discountPercentage / 100) * data[0].price) *
+                  (data.price - (data.discountPercentage / 100) * data.price) *
                   count
                 ).toFixed(2)}
               </p>
             </div>
             <div>
               <p>
-                {data[0].discountPercentage}% discount on {data[0].price}
+                {data.discountPercentage}% discount on {data.price}
               </p>
             </div>
             <div>
-              <p>Available stock :{data[0].stock - count}</p>
+              <p>Available stock :{data.stock - count}</p>
             </div>
           </div>
           <div className='cart-order-BtnCnt'>
