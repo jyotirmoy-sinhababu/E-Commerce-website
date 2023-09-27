@@ -2,8 +2,6 @@ import { useNavigate, createSearchParams } from 'react-router-dom';
 
 import { useGetCarouselByNameQuery } from '../../assets/slice/CarouselSlice';
 
-import { useState } from 'react';
-
 import CarouselCard from './CarouselCard';
 
 import './carouselStyle.css';
@@ -16,21 +14,17 @@ interface CarouselItem {
 }
 
 const CarouselComp = () => {
-  const [carouselFilterData, setCarouselFilterData] = useState<object>();
-
   const { data } = useGetCarouselByNameQuery('');
 
   const navigate = useNavigate();
 
-  const filterCarouselData = (Id: number) => {
-    const filteredData = data.products?.filter((item: any) => {
-      return item.id == Id;
+  const filterCarouselData = (id: number) => {
+    navigate('/carouselDtl', {
+      state: data.products?.filter((item: any) => item.id === id)[0],
     });
 
-    setCarouselFilterData(filteredData);
+    console.log(data.products?.filter((item: any) => item.id === id)[0]);
   };
-
-  console.log(carouselFilterData);
 
   return (
     <div className='carouselComp-cnt' data-ride='carousel'>
@@ -40,7 +34,6 @@ const CarouselComp = () => {
               <div
                 onClick={() => {
                   filterCarouselData(item.id);
-                  navigate('/carouselDtl', { state: carouselFilterData });
                 }}
                 className='carouselComp-cardHolder'
                 key={item.id}
