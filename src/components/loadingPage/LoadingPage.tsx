@@ -1,5 +1,7 @@
 import { AiOutlineLoading } from 'react-icons/ai';
 
+import './loadingStyle.css';
+
 const LoadingPage = () => {
   return (
     <div className='loading-cnt'>

@@ -5,6 +5,7 @@ import { useGetCarouselByNameQuery } from '../../assets/slice/CarouselSlice';
 import CarouselCard from './CarouselCard';
 
 import './carouselStyle.css';
+import LoadingPage from '../loadingPage/LoadingPage';
 
 interface CarouselItem {
   id: number;
@@ -28,21 +29,23 @@ const CarouselComp = () => {
 
   return (
     <div className='carouselComp-cnt' data-ride='carousel'>
-      {data
-        ? data.products?.map((item: CarouselItem) => {
-            return (
-              <div
-                onClick={() => {
-                  filterCarouselData(item.id);
-                }}
-                className='carouselComp-cardHolder'
-                key={item.id}
-              >
-                <CarouselCard data={item} />
-              </div>
-            );
-          })
-        : null}
+      {data ? (
+        data.products?.map((item: CarouselItem) => {
+          return (
+            <div
+              onClick={() => {
+                filterCarouselData(item.id);
+              }}
+              className='carouselComp-cardHolder'
+              key={item.id}
+            >
+              <CarouselCard data={item} />
+            </div>
+          );
+        })
+      ) : isLoading ? (
+        <LoadingPage />
+      ) : null}
     </div>
   );
 };
