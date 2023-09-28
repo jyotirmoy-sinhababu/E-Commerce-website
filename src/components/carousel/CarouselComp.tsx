@@ -14,7 +14,7 @@ interface CarouselItem {
 }
 
 const CarouselComp = () => {
-  const { data } = useGetCarouselByNameQuery('');
+  const { data, isLoading } = useGetCarouselByNameQuery('');
 
   const navigate = useNavigate();
 
