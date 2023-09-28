@@ -14,7 +14,7 @@ const CarouselDtlPage = () => {
   const location = useLocation();
   const data = location.state;
 
-  console.log(data);
+  // console.log(data);
 
   const [count, setCount] = useState<number>(1);
 

@@ -7,7 +7,7 @@ export const categoriesApi = createApi({
   }),
   endpoints: (builder) => ({
     getCategoriesByName: builder.query({
-      query: (name) => `pokemon/${name}`,
+      query: (name) => `categories/${name}`,
     }),
   }),
 });
