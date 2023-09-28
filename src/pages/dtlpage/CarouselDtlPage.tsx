@@ -59,9 +59,9 @@ const CarouselDtlPage = () => {
             })
           : null}
       </div>
-      <div>
+      <div className='Img'>
         {filterImg ? (
-          <div className=''>
+          <div className='filterImg-cnt'>
             <img className='filterImg' src={filterImg} alt='img' />
           </div>
         ) : (

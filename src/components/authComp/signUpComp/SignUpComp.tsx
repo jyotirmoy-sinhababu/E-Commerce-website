@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-// import { auth } from '../../../assets/firebaseConfig/FireBaseConfig';
+import { auth } from '../../../assets/firebaseConfig/FireBaseConfig';
 
 import './signUpComp.css';
 
@@ -17,7 +17,7 @@ const SignUpComp = () => {
     passwordEr: '',
   });
 
-  // const { email, password } = signInput;
+  const { email, password } = signInput;
 
   const signUpFunction = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,14 +36,14 @@ const SignUpComp = () => {
     } else if (!/^.{8}$/.test(signInput.password)) {
       setErr({ ...err, passwordEr: '* Wrong format' });
     } else {
-      // createUserWithEmailAndPassword(auth, email, password)
-      //   .then((userCredential) => {
-      //     const user = userCredential.user;
-      //   })
-      //   .catch((error) => {
-      //     const errorCode = error.code;
-      //     const errorMessage = error.message;
-      //   });
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+        });
     }
   };
 

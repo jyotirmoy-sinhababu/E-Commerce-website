@@ -2,7 +2,6 @@
   display: flex;
   gap: 40px;
   padding: 80px;
-  height: 100vh;
 }
 
 .img-btnsCnt {
@@ -85,7 +84,11 @@
   font-weight: 600;
 }
 
-.filterImg {
+.filterImg-cnt {
   height: 300px;
+}
+
+.filterImg {
+  height: 280px;
   width: 400px;
 }

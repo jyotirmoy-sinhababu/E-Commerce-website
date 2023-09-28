@@ -3,12 +3,12 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: import.meta.env.API_KEY,
-  authDomain: import.meta.env.AUTH_DOMAIN,
-  projectId: import.meta.env.PROJECT_ID,
-  storageBucket: import.meta.env.STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.MESSAGING_SENDER_ID,
-  appId: import.meta.env.APP_ID,
+  apiKey: 'AIzaSyCsV4mrVlS_gnmmjOibh6 - w1M2AxNzzFEo',
+  authDomain: 'e-commerce-fee47.firebaseapp.com',
+  projectId: 'e-commerce-fee47',
+  storageBucket: ' e-commerce-fee47.appspot.com',
+  messagingSenderId: '705358317694',
+  appId: '1:705358317694:web:fccbbe0ad79824af45b02f',
 };
 
 // Initialize Firebase

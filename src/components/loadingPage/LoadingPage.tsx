@@ -1,4 +1,4 @@
-import { AiOutlineLoading } from 'react-icons/ai';
+import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 import './loadingStyle.css';
 
@@ -6,7 +6,7 @@ const LoadingPage = () => {
   return (
     <div className='loading-cnt'>
       <p className='loading-txt'>
-        <AiOutlineLoading />
+        <AiOutlineLoading3Quarters />
       </p>
     </div>
   );
