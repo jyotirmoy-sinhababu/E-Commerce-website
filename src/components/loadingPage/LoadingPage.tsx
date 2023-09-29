@@ -1,7 +1,7 @@
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 
 import './loadingStyle.css';
-import CategoriesComp from '../categoryComp/CategoriesComp';
+// import CategoriesComp from '../categoryComp/CategoriesComp';
 
 const LoadingPage = () => {
   return (
@@ -9,7 +9,7 @@ const LoadingPage = () => {
       <p className='loading-txt'>
         <AiOutlineLoading3Quarters />
       </p>
-      <CategoriesComp />
+      {/* <CategoriesComp /> */}
     </div>
   );
 };
