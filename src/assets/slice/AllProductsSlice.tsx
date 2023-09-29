@@ -1,5 +1,15 @@
-const AllProductsSlice = () => {
-  return <div></div>;
-};
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export default AllProductsSlice;
+export const allProductApi = createApi({
+  reducerPath: 'allProductApi',
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://fakestoreapi.com/',
+  }),
+  endpoints: (builder) => ({
+    getAllProductByName: builder.query({
+      query: (name) => `products/${name}`,
+    }),
+  }),
+});
+
+export const { useGetAllProductByNameQuery } = allProductApi;
