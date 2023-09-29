@@ -15,7 +15,7 @@ interface CarouselItem {
 }
 
 const CarouselComp = () => {
-  const { data, isLoading } = useGetCarouselByNameQuery('');
+  const { data, isLoading, error } = useGetCarouselByNameQuery('');
 
   const navigate = useNavigate();
 
@@ -45,6 +45,10 @@ const CarouselComp = () => {
         })
       ) : isLoading ? (
         <LoadingPage />
+      ) : error ? (
+        <div>
+          <p>no data</p>
+        </div>
       ) : null}
     </div>
   );
