@@ -4,7 +4,6 @@ import CategoriesCard from './CategoriesCard';
 
 const CategoriesComp = () => {
   const { data, isLoading } = useGetCatagoriesByNameQuery('');
-  console.log(data);
   return (
     <div>
       {data ? (

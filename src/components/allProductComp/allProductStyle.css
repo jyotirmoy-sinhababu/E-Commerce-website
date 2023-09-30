@@ -1,0 +1,9 @@
+.allProduct-cnt {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.allProduct-img {
+  height: 280px;
+  width: 220px;
+}
