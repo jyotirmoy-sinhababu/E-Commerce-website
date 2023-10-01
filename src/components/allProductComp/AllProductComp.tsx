@@ -5,7 +5,7 @@ import AllProductCard from './AllProductCard';
 import './allProductStyle.css';
 
 const AllProductComp = () => {
-  const { data, isLoading } = useGetAllProductByNameQuery('');
+  const { data, isLoading } = useGetAllProductByNameQuery('?limit=8');
   console.log(data);
   return (
     <div className='allProduct-cnt'>

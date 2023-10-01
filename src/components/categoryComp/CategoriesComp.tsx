@@ -3,7 +3,7 @@ import LoadingPage from '../loadingPage/LoadingPage';
 import CategoriesCard from './CategoriesCard';
 
 const CategoriesComp = () => {
-  const { data, isLoading } = useGetCatagoriesByNameQuery('');
+  const { data, isLoading } = useGetCatagoriesByNameQuery('?limit=6');
   return (
     <div>
       {data ? (
