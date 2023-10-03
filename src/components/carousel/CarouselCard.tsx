@@ -1,3 +1,5 @@
+import './carouselStyle.css';
+
 const CarouselCard = ({ data }: any) => {
   return (
     <div className='carouselCard-cnt'>

@@ -16,7 +16,7 @@ interface CarouselItem {
 }
 
 const CarouselComp = () => {
-  const { data, isLoading, error } = useGetCarouselByNameQuery('?limit=5');
+  const { data, isLoading, error } = useGetCarouselByNameQuery('?limit=10');
 
   const navigate = useNavigate();
 
