@@ -6,7 +6,8 @@ import CarouselCard from './CarouselCard';
 
 import './carouselStyle.css';
 import LoadingPage from '../loadingPage/LoadingPage';
-
+import SwiperCarousel from '../SwiperCarousel/SwiperCarousel';
+import { SwiperSlide } from 'swiper/react';
 interface CarouselItem {
   id: number;
   brand: string;
@@ -15,8 +16,7 @@ interface CarouselItem {
 }
 
 const CarouselComp = () => {
-  //////////
-  const { data, isLoading, error } = useGetCarouselByNameQuery('');
+  const { data, isLoading, error } = useGetCarouselByNameQuery('?limit=5');
 
   const navigate = useNavigate();
 
@@ -30,27 +30,30 @@ const CarouselComp = () => {
 
   return (
     <div className='carouselComp-cnt' data-ride='carousel'>
-      {data ? (
-        data.products?.map((item: CarouselItem) => {
-          return (
-            <div
-              onClick={() => {
-                filterCarouselData(item.id);
-              }}
-              className='carouselComp-cardHolder'
-              key={item.id}
-            >
-              <CarouselCard data={item} />
-            </div>
-          );
-        })
-      ) : isLoading ? (
-        <LoadingPage />
-      ) : error ? (
-        <div>
-          <p>no data</p>
-        </div>
-      ) : null}
+      <SwiperCarousel>
+        {data ? (
+          data.products?.map((item: CarouselItem) => {
+            return (
+              <SwiperSlide key={item.id}>
+                <div
+                  onClick={() => {
+                    filterCarouselData(item.id);
+                  }}
+                  className='carouselComp-cardHolder'
+                >
+                  <CarouselCard data={item} />
+                </div>
+              </SwiperSlide>
+            );
+          })
+        ) : isLoading ? (
+          <LoadingPage />
+        ) : error ? (
+          <div>
+            <p>no data</p>
+          </div>
+        ) : null}
+      </SwiperCarousel>
     </div>
   );
 };
