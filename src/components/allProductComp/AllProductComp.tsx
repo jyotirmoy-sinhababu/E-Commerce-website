@@ -2,7 +2,7 @@ import { useGetAllProductByNameQuery } from '../../assets/slice/AllProductsSlice
 import LoadingPage from '../loadingPage/LoadingPage';
 import AllProductCard from './AllProductCard';
 
-import './allProductStyle.css';
+// import './allProductStyle.css';
 
 const AllProductComp = () => {
   const { data, isLoading } = useGetAllProductByNameQuery('?limit=8');

@@ -2,7 +2,7 @@ import { BsFillPersonFill } from 'react-icons/bs';
 
 import { useNavigate } from 'react-router-dom';
 
-import './btnStyle.css';
+// import './btnStyle.css';
 
 const LogInBtn = () => {
   const navigate = useNavigate();

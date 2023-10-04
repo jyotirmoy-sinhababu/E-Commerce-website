@@ -7,7 +7,7 @@ import { ImSad2 } from 'react-icons/im';
 import { IoMdAdd } from 'react-icons/io';
 import { GrSubtract } from 'react-icons/gr';
 
-import './carouselDtlPageStyle.css';
+// import './carouselDtlPageStyle.css';
 
 const CarouselDtlPage = () => {
   const [filterImg, setFIlterImg] = useState<string>();

@@ -1,4 +1,4 @@
-import './allProductStyle.css';
+// import './allProductStyle.css';
 
 const AllProductCard = ({ data }: any) => {
   return (
