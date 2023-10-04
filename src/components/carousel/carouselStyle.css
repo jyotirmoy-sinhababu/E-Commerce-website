@@ -1,5 +1,5 @@
 .carouselComp-cnt {
-  padding: 42px;
+  padding: 59px;
   display: flex;
   align-items: center;
   overflow-y: hidden;
@@ -35,4 +35,5 @@
   display: flex;
   justify-content: center;
   padding-bottom: 12px;
+  background-color: antiquewhite;
 }
