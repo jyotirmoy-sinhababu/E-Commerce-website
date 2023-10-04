@@ -4,8 +4,8 @@ import { AiOutlineShoppingCart } from 'react-icons/ai';
 
 const CartBtn = () => {
   return (
-    <div className='cartBtn-cnt'>
-      <button className='cartBtn'>
+    <div className=''>
+      <button className='flex items-center gap-[8px] text-2xl'>
         <AiOutlineShoppingCart /> Cart
       </button>
     </div>

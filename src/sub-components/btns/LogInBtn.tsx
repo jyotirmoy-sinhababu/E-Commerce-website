@@ -7,12 +7,12 @@ import { useNavigate } from 'react-router-dom';
 const LogInBtn = () => {
   const navigate = useNavigate();
   return (
-    <div className='logInBtn-cnt'>
+    <div>
       <button
         onClick={() => {
           navigate('/login');
         }}
-        className='logInBtn'
+        className='flex items-center gap-[8px] text-2xl'
       >
         {' '}
         <BsFillPersonFill /> Log In

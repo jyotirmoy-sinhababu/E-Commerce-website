@@ -7,10 +7,10 @@ const SearchBar = () => {
       onSubmit={(e: React.FormEvent) => {
         e.preventDefault();
       }}
-      className='searchBar-form'
+      className='bg-slate-300 pr-[10px]'
     >
       <input
-        className='searchBar-inputField'
+        className='w-[620px] h-[45px] bg-slate-300 text-xl px-[15px] '
         type='text'
         placeholder='Search for products'
       />
