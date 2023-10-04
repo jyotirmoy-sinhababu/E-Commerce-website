@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 // import { auth } from '../../../assets/firebaseConfig/FireBaseConfig';
 
-import './signUpComp.css';
+// import './signUpComp.css';
 
 const SignUpComp = () => {
   const [signInput, setSignUpInput] = useState<any>({

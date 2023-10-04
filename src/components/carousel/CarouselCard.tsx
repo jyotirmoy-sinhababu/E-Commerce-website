@@ -1,4 +1,4 @@
-import './carouselStyle.css';
+// import './carouselStyle.css';
 
 const CarouselCard = ({ data }: any) => {
   return (

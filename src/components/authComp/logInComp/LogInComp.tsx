@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-import './loginComp.css';
+// import './loginComp.css';
 
 const LogInComp = () => {
   return (

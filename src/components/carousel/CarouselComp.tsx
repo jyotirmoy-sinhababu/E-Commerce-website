@@ -4,7 +4,7 @@ import { useGetCarouselByNameQuery } from '../../assets/slice/CarouselSlice';
 
 import CarouselCard from './CarouselCard';
 
-import './carouselStyle.css';
+// import './carouselStyle.css';
 import LoadingPage from '../loadingPage/LoadingPage';
 import SwiperCarousel from '../SwiperCarousel/SwiperCarousel';
 import { SwiperSlide } from 'swiper/react';

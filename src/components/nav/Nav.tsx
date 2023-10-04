@@ -2,7 +2,7 @@ import SearchBar from '../../sub-components/searchBar/SearchBar';
 import LogInBtn from '../../sub-components/btns/LogInBtn';
 import CartBtn from '../../sub-components/btns/CartBtn';
 
-import './navStyle.css';
+// import './navStyle.css';
 
 const Nav = () => {
   return (
