@@ -1,5 +1,3 @@
-// import './allProductStyle.css';
-
 const AllProductCard = ({ data }: any) => {
   return (
     <div className='border-2 p-[8px] cursor-pointer'>

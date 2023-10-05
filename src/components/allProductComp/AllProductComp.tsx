@@ -2,11 +2,24 @@ import { useGetAllProductByNameQuery } from '../../assets/slice/AllProductsSlice
 import LoadingPage from '../loadingPage/LoadingPage';
 import AllProductCard from './AllProductCard';
 
+import { useNavigate } from 'react-router-dom';
+
 // import './allProductStyle.css';
 
 const AllProductComp = () => {
   const { data, isLoading } = useGetAllProductByNameQuery('?limit=7');
   console.log(data);
+
+  const navigate = useNavigate();
+
+  const filterProductData = (id: number) => {
+    navigate('/allProduct', {
+      state: data.products?.filter((item: any) => item.id === id)[0],
+    });
+
+    // console.log(data.products?.filter((item: any) => item.id === id)[0]);
+  };
+
   return (
     <div className='flex justify-around p-12 '>
       {data ? (
