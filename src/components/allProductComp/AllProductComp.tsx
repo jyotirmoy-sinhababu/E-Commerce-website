@@ -14,10 +14,9 @@ const AllProductComp = () => {
 
   const filterProductData = (id: number) => {
     navigate('/allProduct', {
-      state: data.products?.filter((item: any) => item.id === id)[0],
+      state: data?.filter((item: any) => item.id === id)[0],
     });
-
-    // console.log(data.products?.filter((item: any) => item.id === id)[0]);
+    console.log(data?.filter((item: any) => item.id === id)[0]);
   };
 
   return (
@@ -26,7 +25,13 @@ const AllProductComp = () => {
         data.map((item: any) => {
           return (
             <div key={item.id}>
-              <AllProductCard data={item} />
+              <div
+                onClick={() => {
+                  filterProductData(item.id);
+                }}
+              >
+                <AllProductCard data={item} />
+              </div>
             </div>
           );
         })

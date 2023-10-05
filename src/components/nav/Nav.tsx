@@ -8,7 +8,7 @@ const Nav = () => {
   return (
     <div className='flex justify-around items-center p-[30px]'>
       <div className='flex gap-[25px] items-center '>
-        <p className='text-4xl'>E-CART</p>
+        <p className='text-4xl '>E-CART</p>
         <SearchBar />
       </div>
       <div className='nav-cartBtn-cnt'>
