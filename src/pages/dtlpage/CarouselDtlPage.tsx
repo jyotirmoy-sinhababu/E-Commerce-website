@@ -40,14 +40,14 @@ const CarouselDtlPage = () => {
   };
 
   return (
-    <div className='carouselDtl-cnt'>
-      <div className='img-btnsCnt'>
+    <div className='flex p-[53px]'>
+      <div className='flex gap-[12px] flex-col'>
         {data
           ? data?.images?.map((item: string, index: number) => {
               return (
                 <div key={index}>
                   <img
-                    className='img-btns'
+                    className=' w-[100px] h-[96px] cursor-pointer border '
                     src={item}
                     alt=''
                     onClick={() => {
@@ -59,19 +59,27 @@ const CarouselDtlPage = () => {
             })
           : null}
       </div>
-      <div className='Img'>
+      <div className=''>
         {filterImg ? (
-          <div className='filterImg-cnt'>
-            <img className='filterImg' src={filterImg} alt='img' />
+          <div className='ms-8'>
+            <img className='h-[421px] w-[460px] ' src={filterImg} alt='img' />
           </div>
         ) : (
-          <div>
-            {data ? <img src={data.thumbnail} alt='' /> : <p>No image found</p>}
+          <div className='ms-8'>
+            {data ? (
+              <img
+                className='h-[421px] w-[460px] '
+                src={data.thumbnail}
+                alt=''
+              />
+            ) : (
+              <p>No image found</p>
+            )}
           </div>
         )}
-        <div className='countBtn-cnt'>
+        <div className='ms-8 flex mt-[10px] gap-[4px]'>
           <button
-            className='countBtn'
+            className='border w-[26px] h-[25px] flex justify-center items-center'
             onClick={() => {
               subCount();
             }}
@@ -80,7 +88,7 @@ const CarouselDtlPage = () => {
           </button>
           <p>{count}</p>
           <button
-            className='countBtn'
+            className='border w-[26px] h-[25px] flex justify-center items-center'
             onClick={() => {
               if (data.stock != count) {
                 addCount();
@@ -92,14 +100,14 @@ const CarouselDtlPage = () => {
         </div>
       </div>
       {data ? (
-        <div>
+        <div className=' ml-[63px] gap-[8px]'>
           <div>
             <h2>{data.title}</h2>
             <p>by {data.brand}</p>
           </div>
-          <div className='rating-cnt'>
-            <p className='rating'>{data.rating}</p>
-            <p className='star'>
+          <div className='flex items-center'>
+            <p className=''>{data.rating}</p>
+            <p className=''>
               <AiTwotoneStar />
             </p>
           </div>
@@ -123,9 +131,13 @@ const CarouselDtlPage = () => {
               <p>Available stock :{data.stock - count}</p>
             </div>
           </div>
-          <div className='cart-order-BtnCnt'>
-            <button className='orderBtn'>Order</button>
-            <button className='Addto-cartBtn'>Add to cart</button>
+          <div className='flex justify-between w-[380px] h-12  mt-6'>
+            <button className='orderBtn h-12 w-[107px] border flex items-center justify-center '>
+              Order
+            </button>
+            <button className='orderBtn h-12 w-[107px]  flex items-center justify-center '>
+              Add to cart
+            </button>
           </div>
         </div>
       ) : (
