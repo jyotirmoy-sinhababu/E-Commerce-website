@@ -5,10 +5,10 @@ import AllProductCard from './AllProductCard';
 // import './allProductStyle.css';
 
 const AllProductComp = () => {
-  const { data, isLoading } = useGetAllProductByNameQuery('?limit=8');
+  const { data, isLoading } = useGetAllProductByNameQuery('?limit=7');
   console.log(data);
   return (
-    <div className='allProduct-cnt'>
+    <div className='flex justify-around p-12 '>
       {data ? (
         data.map((item: any) => {
           return (

@@ -29,7 +29,7 @@ const CarouselComp = () => {
   };
 
   return (
-    <div className='carouselComp-cnt' data-ride='carousel'>
+    <div className='' data-ride='carousel'>
       <SwiperCarousel>
         {data ? (
           data.products?.map((item: CarouselItem) => {
