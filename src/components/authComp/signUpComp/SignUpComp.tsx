@@ -52,7 +52,7 @@ const SignUpComp = () => {
   };
 
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col justify-center items-center h-[80vh]'>
       <div>
         <p>E-cart</p>
         <p>Sign up form</p>
@@ -64,12 +64,18 @@ const SignUpComp = () => {
         }}
       >
         <label>User Name</label>
-        <input type='text' name='userName' />
+        <input className='border w-[308px]' type='text' name='userName' />
         <label>User Email</label>
-        <input type='email' name='userEmail' />
+        <input className='border w-[308px]' type='email' name='userEmail' />
         <label>Password</label>
-        <input type='password' name='userPassword' />
-        <button type='submit'>Log in</button>
+        <input
+          className='border w-[308px]'
+          type='password'
+          name='userPassword'
+        />
+        <button className='border w-[142px] h-[43px]' type='submit'>
+          Log in
+        </button>
       </form>
     </div>
   );
