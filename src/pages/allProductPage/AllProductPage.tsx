@@ -14,7 +14,11 @@ const AllProductPage = () => {
         <div className='flex  p-[4%] gap-[14%] '>
           <div className=''>
             {' '}
-            <img className='w-[375px]' src={data.image} alt={data.jewelery} />
+            <img
+              className='w-[375px] h-[400px]'
+              src={data.image}
+              alt={data.jewelery}
+            />
             <div className='w-[375px] flex justify-end mt-[17px]'>
               <p className='font-serif text-2xl'>{data.title}</p>
             </div>

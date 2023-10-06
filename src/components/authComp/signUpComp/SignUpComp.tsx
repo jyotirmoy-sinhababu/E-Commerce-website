@@ -52,45 +52,24 @@ const SignUpComp = () => {
   };
 
   return (
-    <div className='signUp-form-cnt'>
+    <div className='flex flex-col'>
+      <div>
+        <p>E-cart</p>
+        <p>Sign up form</p>
+      </div>
       <form
-        onSubmit={(e) => {
-          signUpFunction(e);
+        className='flex flex-col'
+        onSubmit={(e: React.FormEvent) => {
+          e.preventDefault();
         }}
-        className='signUp-form'
       >
-        <label>Your name</label>
-        <input
-          onChange={(e) => {
-            handleChange(e);
-          }}
-          name='name'
-          className='signUp-field'
-          type='text'
-        />
-        <label>Your email</label>
-        <input
-          onChange={(e) => {
-            handleChange(e);
-          }}
-          name='email'
-          className='signUp-field'
-          type='email'
-        />
-        <label>Your password</label>
-        <input
-          onChange={(e) => {
-            handleChange(e);
-          }}
-          name='password'
-          className='signUp-field'
-          type='password'
-        />
-        <div className='signUpBtn-cnt'>
-          <button type='submit' className='signUpBtn'>
-            SignUp
-          </button>
-        </div>
+        <label>User Name</label>
+        <input type='text' name='userName' />
+        <label>User Email</label>
+        <input type='email' name='userEmail' />
+        <label>Password</label>
+        <input type='password' name='userPassword' />
+        <button type='submit'>Log in</button>
       </form>
     </div>
   );
