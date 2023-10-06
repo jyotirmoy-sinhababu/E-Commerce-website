@@ -6,6 +6,7 @@ import { AiTwotoneStar } from 'react-icons/ai';
 import { ImSad2 } from 'react-icons/im';
 import { IoMdAdd } from 'react-icons/io';
 import { GrSubtract } from 'react-icons/gr';
+import OrderAndCartBtn from '../../sub-components/order&addCart/OrderAndCartBtn';
 
 // import './carouselDtlPageStyle.css';
 
@@ -40,7 +41,7 @@ const CarouselDtlPage = () => {
   };
 
   return (
-    <div className='flex p-[53px]'>
+    <div className='flex p-[4%]'>
       <div className='flex gap-[12px] flex-col'>
         {data
           ? data?.images?.map((item: string, index: number) => {
@@ -100,7 +101,7 @@ const CarouselDtlPage = () => {
         </div>
       </div>
       {data ? (
-        <div className=' ml-[63px] gap-[8px]'>
+        <div className=' ml-[10%] gap-[8px]'>
           <div>
             <h2>{data.title}</h2>
             <p>by {data.brand}</p>
@@ -131,14 +132,7 @@ const CarouselDtlPage = () => {
               <p>Available stock :{data.stock - count}</p>
             </div>
           </div>
-          <div className='flex justify-between w-[380px] h-12  mt-6'>
-            <button className='orderBtn h-12 w-[107px] border flex items-center justify-center '>
-              Order
-            </button>
-            <button className='orderBtn h-12 w-[107px]  flex items-center justify-center '>
-              Add to cart
-            </button>
-          </div>
+          <OrderAndCartBtn />
         </div>
       ) : (
         <p>
