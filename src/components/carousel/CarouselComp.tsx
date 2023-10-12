@@ -39,7 +39,7 @@ const CarouselComp = () => {
                   onClick={() => {
                     filterCarouselData(item.id);
                   }}
-                  className='carouselComp-cardHolder'
+                  className=''
                 >
                   <CarouselCard data={item} />
                 </div>

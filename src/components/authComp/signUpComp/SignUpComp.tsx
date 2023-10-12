@@ -52,24 +52,32 @@ const SignUpComp = () => {
   };
 
   return (
-    <div className='flex flex-col justify-center items-center h-[80vh]'>
+    <div className='flex flex-col justify-center items-center mt-[11%] '>
       <div>
         <p>E-cart</p>
         <p>Sign up form</p>
       </div>
       <form
-        className='flex flex-col'
+        className='flex flex-col gap-[8px]'
         onSubmit={(e: React.FormEvent) => {
           e.preventDefault();
         }}
       >
         <label>User Name</label>
-        <input className='border w-[308px]' type='text' name='userName' />
+        <input
+          className='border w-[313px] h-[35px]'
+          type='text'
+          name='userName'
+        />
         <label>User Email</label>
-        <input className='border w-[308px]' type='email' name='userEmail' />
+        <input
+          className='border w-[313px] h-[35px]'
+          type='email'
+          name='userEmail'
+        />
         <label>Password</label>
         <input
-          className='border w-[308px]'
+          className='border w-[313px] h-[35px]'
           type='password'
           name='userPassword'
         />
