@@ -39,7 +39,7 @@ const CarouselComp = () => {
                   onClick={() => {
                     filterCarouselData(item.id);
                   }}
-                  className=''
+                  className='cursor-pointer'
                 >
                   <CarouselCard data={item} />
                 </div>

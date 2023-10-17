@@ -1,16 +1,9 @@
 import { useState } from 'react';
 
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-// import { auth } from '../../../assets/firebaseConfig/FireBaseConfig';
-
 // import './signUpComp.css';
 
 const SignUpComp = () => {
-  const [signInput, setSignUpInput] = useState<any>({
-    name: '',
-    email: '',
-    password: '',
-  });
+  const [signInput, setSignUpInput] = useState<any>();
   const [err, setErr] = useState<any>({
     nameEr: '',
     emailEr: '',
@@ -19,32 +12,17 @@ const SignUpComp = () => {
 
   // const { email, password } = signInput;
 
-  const signUpFunction = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (signInput.name == '') {
-      setErr({ ...err, nameEr: '* Required' });
-    } else if (!/^[a-zA-Z ]+$/.test(signInput.name)) {
-      setErr({ ...err, nameEr: '* Wrong format' });
-    } else if (signInput.email == '') {
-      setErr({ ...err, emailEr: '* Required' });
-    } else if (
-      !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(signInput.email)
-    ) {
-      setErr({ ...err, emailEr: '* Wrong format' });
-    } else if (signInput.password == '') {
-      setErr({ ...err, passwordEr: '* Required' });
-    } else if (!/^.{8}$/.test(signInput.password)) {
-      setErr({ ...err, passwordEr: '* Wrong format' });
-    } else {
-      // createUserWithEmailAndPassword(auth, email, password)
-      //   .then((userCredential) => {
-      //     const user = userCredential.user;
-      //   })
-      //   .catch((error) => {
-      //     const errorCode = error.code;
-      //     const errorMessage = error.message;
-      //   });
-    }
+  const signUpFunction = async () => {
+    // await createUserWithEmailAndPassword(auth, email, password)
+    //   .then((userCredential) => {
+    //     const user = userCredential.user;
+    //     console.log(user);
+    //     debugger;
+    //   })
+    //   .catch((error) => {
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
+    //   });
   };
 
   const handleChange = (e: any) => {
@@ -61,6 +39,7 @@ const SignUpComp = () => {
         className='flex flex-col gap-[8px]'
         onSubmit={(e: React.FormEvent) => {
           e.preventDefault();
+          signUpFunction();
         }}
       >
         <label>User Name</label>
@@ -68,21 +47,30 @@ const SignUpComp = () => {
           className='border w-[313px] h-[35px]'
           type='text'
           name='userName'
+          onChange={(e) => {
+            handleChange(e);
+          }}
         />
         <label>User Email</label>
         <input
           className='border w-[313px] h-[35px]'
           type='email'
           name='userEmail'
+          onChange={(e) => {
+            handleChange(e);
+          }}
         />
         <label>Password</label>
         <input
           className='border w-[313px] h-[35px]'
           type='password'
           name='userPassword'
+          onChange={(e) => {
+            handleChange(e);
+          }}
         />
         <button className='border w-[142px] h-[43px]' type='submit'>
-          Log in
+          Sign Up{' '}
         </button>
       </form>
     </div>

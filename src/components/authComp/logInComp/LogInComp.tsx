@@ -9,7 +9,7 @@ const LogInComp = () => {
       </div>
       <form></form>
       <div>
-        <NavLink to='/signUp'></NavLink>
+        <NavLink to='/signUp'>Sign up</NavLink>
       </div>
     </div>
   );
