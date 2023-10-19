@@ -1,23 +1,33 @@
 import { useState } from 'react';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../../assets/firebaseConfig/Firebase';
 
-// import './signUpComp.css';
+import { userData } from '../../../assets/slice/UserSlice';
+import { useDispatch } from 'react-redux';
 
 const SignUpComp = () => {
   const [signInput, setSignUpInput] = useState<any>();
+
   const [err, setErr] = useState<any>({
     nameEr: '',
     emailEr: '',
     passwordEr: '',
   });
 
-  // const { email, password } = signInput;
+  const dispatch = useDispatch();
+  // const [user, setUser] = useState<any>();
+
+  // console.log(user);
 
   const signUpFunction = async () => {
-    // await createUserWithEmailAndPassword(auth, email, password)
+    // await createUserWithEmailAndPassword(
+    //   auth,
+    //   signInput.userEmail,
+    //   signInput.userPassword
+    // )
     //   .then((userCredential) => {
     //     const user = userCredential.user;
-    //     console.log(user);
-    //     debugger;
+    //     dispatch(userData(Array.from(user)));
     //   })
     //   .catch((error) => {
     //     const errorCode = error.code;

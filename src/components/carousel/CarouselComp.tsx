@@ -8,6 +8,7 @@ import CarouselCard from './CarouselCard';
 import LoadingPage from '../loadingPage/LoadingPage';
 import SwiperCarousel from '../SwiperCarousel/SwiperCarousel';
 import { SwiperSlide } from 'swiper/react';
+
 interface CarouselItem {
   id: number;
   brand: string;
