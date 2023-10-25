@@ -7,6 +7,15 @@ const initialState = {
   error: null,
 };
 
+export const fetchContent = createAsyncThunk(
+  'content/fetchContent',
+  async () => {
+    const res = await axios('https://jsonplaceholder.typicode.com/photos');
+    const data = await res.data;
+    return data;
+  }
+);
+
 const UserSlice = createSlice({
   name: 'user',
   initialState: { user: [] },

@@ -15,24 +15,20 @@ const SignUpComp = () => {
   });
 
   const dispatch = useDispatch();
-  // const [user, setUser] = useState<any>();
-
-  // console.log(user);
 
   const signUpFunction = async () => {
-    // await createUserWithEmailAndPassword(
-    //   auth,
-    //   signInput.userEmail,
-    //   signInput.userPassword
-    // )
-    //   .then((userCredential) => {
-    //     const user = userCredential.user;
-    //     dispatch(userData(Array.from(user)));
-    //   })
-    //   .catch((error) => {
-    //     const errorCode = error.code;
-    //     const errorMessage = error.message;
-    //   });
+    await createUserWithEmailAndPassword(
+      auth,
+      signInput.userEmail,
+      signInput.userPassword
+    )
+      .then((userCredential) => {
+        const user = userCredential.user;
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
   };
 
   const handleChange = (e: any) => {
