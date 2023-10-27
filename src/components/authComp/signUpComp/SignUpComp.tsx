@@ -1,9 +1,6 @@
 import { useState } from 'react';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../../assets/firebaseConfig/Firebase';
 
-import { userData } from '../../../assets/slice/UserSlice';
-import { useDispatch } from 'react-redux';
+import { useCreateUser } from '../../utils/CreateUser';
 
 const SignUpComp = () => {
   const [signInput, setSignUpInput] = useState<any>();
@@ -14,22 +11,7 @@ const SignUpComp = () => {
     passwordEr: '',
   });
 
-  const dispatch = useDispatch();
-
-  const signUpFunction = async () => {
-    await createUserWithEmailAndPassword(
-      auth,
-      signInput.userEmail,
-      signInput.userPassword
-    )
-      .then((userCredential) => {
-        const user = userCredential.user;
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
-  };
+  const [isUser, setIsUser] = useState<boolean>();
 
   const handleChange = (e: any) => {
     setSignUpInput({ ...signInput, [e.target.name]: e.target.value });
@@ -45,7 +27,7 @@ const SignUpComp = () => {
         className='flex flex-col gap-[8px]'
         onSubmit={(e: React.FormEvent) => {
           e.preventDefault();
-          signUpFunction();
+          useCreateUser(signInput.name, signInput.email);
         }}
       >
         <label>User Name</label>

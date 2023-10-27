@@ -1,8 +1,16 @@
+import { useState, useEffect } from 'react';
+
 import SearchBar from '../../sub-components/searchBar/SearchBar';
 import LogInBtn from '../../sub-components/btns/LogInBtn';
 import CartBtn from '../../sub-components/btns/CartBtn';
 
-  const Nav = () => {
+const Nav = () => {
+  const [currentUser, setCurrentUser] = useState<any>();
+  useEffect(() => {
+    const currentUser = localStorage.getItem('currentUser');
+    setCurrentUser(currentUser);
+  }, []);
+
   return (
     <div className='flex justify-around items-center p-[30px]'>
       <div className='flex gap-[25px] items-center '>
@@ -13,7 +21,7 @@ import CartBtn from '../../sub-components/btns/CartBtn';
         <CartBtn />
       </div>
       <div className='nav-logIn-btn-cnt'>
-        <LogInBtn />
+        {currentUser ? 'Log Out' : <LogInBtn />}
       </div>
     </div>
   );
