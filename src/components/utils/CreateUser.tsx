@@ -1,5 +1,4 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-
 import { auth } from '../../assets/firebaseConfig/Firebase';
 
 export const useCreateUser = async (email: any, password: any) => {

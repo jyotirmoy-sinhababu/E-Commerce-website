@@ -6,6 +6,7 @@ import CartBtn from '../../sub-components/btns/CartBtn';
 
 const Nav = () => {
   const [currentUser, setCurrentUser] = useState<any>();
+
   useEffect(() => {
     const currentUser = localStorage.getItem('currentUser');
     setCurrentUser(currentUser);
@@ -21,7 +22,7 @@ const Nav = () => {
         <CartBtn />
       </div>
       <div className='nav-logIn-btn-cnt'>
-        {currentUser ? 'Log Out' : <LogInBtn />}
+        {currentUser ? <LogInBtn /> : 'log out'}
       </div>
     </div>
   );

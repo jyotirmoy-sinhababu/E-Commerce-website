@@ -11,8 +11,6 @@ const SignUpComp = () => {
     passwordEr: '',
   });
 
-  const [isUser, setIsUser] = useState<boolean>();
-
   const handleChange = (e: any) => {
     setSignUpInput({ ...signInput, [e.target.name]: e.target.value });
   };
