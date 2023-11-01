@@ -1,16 +1,25 @@
 import { useState, useEffect } from 'react';
 
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../assets/firebaseConfig/Firebase';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { addUser } from '../../assets/slice/UserOnlineSlice';
+
 import SearchBar from '../../sub-components/searchBar/SearchBar';
 import LogInBtn from '../../sub-components/btns/LogInBtn';
 import CartBtn from '../../sub-components/btns/CartBtn';
+import LogOutBtn from '../../sub-components/btns/LogOutBtn';
 
 const Nav = () => {
-  const [currentUser, setCurrentUser] = useState<any>();
+  const user = useSelector((state: any) => state.user.user);
+  const dispatch = useDispatch();
+  // const [currentUser, setCurrentUser] = useState<any>();
 
-  useEffect(() => {
-    const currentUser = localStorage.getItem('currentUser');
-    setCurrentUser(currentUser);
-  }, []);
+  // useEffect(() => {
+  //   const currentUser = localStorage.getItem('currentUser');
+  //   setCurrentUser(currentUser);
+  // }, []);
 
   return (
     <div className='flex justify-around items-center p-[30px]'>
@@ -22,7 +31,7 @@ const Nav = () => {
         <CartBtn />
       </div>
       <div className='nav-logIn-btn-cnt'>
-        {currentUser ? <LogInBtn /> : 'log out'}
+        {user ? <LogOutBtn /> : <LogInBtn />}
       </div>
     </div>
   );

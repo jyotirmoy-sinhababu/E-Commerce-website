@@ -14,6 +14,7 @@ const SignUpComp = () => {
   const handleChange = (e: any) => {
     setSignUpInput({ ...signInput, [e.target.name]: e.target.value });
   };
+  console.log(signInput);
 
   return (
     <div className='flex flex-col justify-center items-center mt-[11%] '>
@@ -25,7 +26,8 @@ const SignUpComp = () => {
         className='flex flex-col gap-[8px]'
         onSubmit={(e: React.FormEvent) => {
           e.preventDefault();
-          useCreateUser(signInput.name, signInput.email);
+          if (signInput)
+            useCreateUser(signInput.userEmail, signInput.userPassword);
         }}
       >
         <label>User Name</label>
@@ -56,7 +58,7 @@ const SignUpComp = () => {
           }}
         />
         <button className='border w-[142px] h-[43px]' type='submit'>
-          Sign Up{' '}
+          Sign Up
         </button>
       </form>
     </div>
