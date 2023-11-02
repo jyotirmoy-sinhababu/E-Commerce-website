@@ -27,7 +27,7 @@ const SignUpComp = () => {
         onSubmit={(e: React.FormEvent) => {
           e.preventDefault();
           if (signInput)
-            useCreateUser(signInput.userEmail, signInput.userPassword);
+            useCreateUser(signInput.userEmail, signInput.userPassword); 
         }}
       >
         <label>User Name</label>
