@@ -22,7 +22,7 @@ const Nav = () => {
   // }, []);
 
   return (
-    <div className='flex justify-around items-center p-[30px]'>
+    <div className='flex justify-around items-center p-[3%]'>
       <div className='flex gap-[25px] items-center '>
         <p className='text-4xl '>E-CART</p>
         <SearchBar />

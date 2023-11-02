@@ -10,7 +10,7 @@ const SearchBar = () => {
       className='bg-slate-300 pr-[10px]'
     >
       <input
-        className='w-[620px] h-[45px] bg-slate-300 text-xl px-[15px] '
+        className='w-[620px] h-[49px] bg-slate-300 text-xl px-[15px] '
         type='text'
         placeholder='Search for products'
       />

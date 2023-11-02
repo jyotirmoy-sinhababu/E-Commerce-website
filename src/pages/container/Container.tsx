@@ -5,6 +5,8 @@ import CategoriesComp from '../../components/categoryComp/CategoriesComp';
 
 import { useDispatch } from 'react-redux';
 import { addUser } from '../../assets/slice/UserOnlineSlice';
+// import Modal from '../../modal/Modal';
+// import SignUpComp from '../../components/authComp/signUpComp/SignUpComp';
 
 const Container = () => {
   const dispatch = useDispatch();
@@ -20,6 +22,9 @@ const Container = () => {
       <CarouselComp />
       <AllProductComp />
       <CategoriesComp />
+      {/* <Modal>
+        <SignUpComp />
+      </Modal> */}
     </div>
   );
 };

@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const UserOnlineSlice = createSlice({
   name: 'user',
-  initialState: { user: {} },
+  initialState: { user: [] },
   reducers: {
     addUser: (state, action) => {
       state.user = action.payload;
