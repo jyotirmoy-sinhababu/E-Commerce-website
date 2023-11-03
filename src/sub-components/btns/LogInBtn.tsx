@@ -13,7 +13,7 @@ const LogInBtn = () => {
         onClick={() => {
           navigate('/login');
         }}
-        className='flex items-center gap-[8px] text-2xl'
+        className='flex items-center font-serif gap-[8px] text-2xl'
       >
         {' '}
         <BsFillPersonFill /> Log In

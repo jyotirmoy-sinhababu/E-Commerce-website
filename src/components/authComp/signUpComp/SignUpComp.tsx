@@ -19,7 +19,7 @@ const SignUpComp = () => {
   return (
     <div className='flex mt-[4%]  justify-center'>
       <div className='flex  gap-[22px] border '>
-        <div className='flex flex-col w-[310px] p-[12px] bg-[url("https://www.lifewire.com/thmb/2-ZEU_mnPstnWDcF1I_33H6YAD4=/7680x4320/filters:fill(auto,1)/hands-using-computer-to-config-system-vector-illustration-setting-personal-computer-concept-918493164-5ae8e89204d1cf003c57846f.jpg")]  h-[360px]'>
+        <div className='flex flex-col w-[310px] p-[12px] bg-[url("https://www.lifewire.com/thmb/2-ZEU_mnPstnWDcF1I_33H6YAD4=/7680x4320/filters:fill(auto,1)/hands-using-computer-to-config-system-vector-illustration-setting-personal-computer-concept-918493164-5ae8e89204d1cf003c57846f.jpg")] gap-[19px]  h-[360px]'>
           <p className='text-3xl font-serif '>Signup</p>
           <p className='text-xl font-serif '>
             Get access to your cart and orders.
