@@ -24,6 +24,7 @@ const LogInComp = () => {
       ).then((userCredential) => {
         const user: any = userCredential.user;
         localStorage.setItem('currentUser', user);
+        console.log('done');
       });
     }
   };
