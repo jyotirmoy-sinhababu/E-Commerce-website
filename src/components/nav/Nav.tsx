@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../../assets/firebaseConfig/Firebase';
+// import { onAuthStateChanged } from 'firebase/auth';
+// import { auth } from '../../assets/firebaseConfig/Firebase';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { addUser } from '../../assets/slice/UserOnlineSlice';
+// import { addUser } from '../../assets/slice/UserOnlineSlice';
 
 import SearchBar from '../../sub-components/searchBar/SearchBar';
 import LogInBtn from '../../sub-components/btns/LogInBtn';
@@ -15,8 +15,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
   const user = useSelector((state: any) => state.user.user);
-  const dispatch = useDispatch();
-
+  // const dispatch = useDispatch();
+  console.log(user);
   const navigate = useNavigate();
   // const [currentUser, setCurrentUser] = useState<any>();
 

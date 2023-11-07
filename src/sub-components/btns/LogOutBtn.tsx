@@ -17,7 +17,8 @@ const LogOutBtn = () => {
       .then(() => {
         localStorage.removeItem('currentUser');
         navigate('/');
-        dispatch(addUser({}));
+        dispatch(addUser(''));
+        console.log('logOut btn');
       })
       .catch((error) => {});
   };

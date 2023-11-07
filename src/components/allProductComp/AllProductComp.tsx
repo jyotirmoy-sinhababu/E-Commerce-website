@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const AllProductComp = () => {
   const { data, isLoading } = useGetAllProductByNameQuery('?limit=7');
-  console.log(data);
+  // console.log(data);
 
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ const AllProductComp = () => {
     navigate('/allProduct', {
       state: data?.filter((item: any) => item.id === id)[0],
     });
-    console.log(data?.filter((item: any) => item.id === id)[0]);
+    // console.log(data?.filter((item: any) => item.id === id)[0]);
   };
 
   return (

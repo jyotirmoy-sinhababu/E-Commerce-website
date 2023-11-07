@@ -10,22 +10,27 @@ const LogInComp = () => {
   const [logInData, setLogInData] = useState<any>();
 
   const currentUser = useSelector((state: any) => state.user.user);
+  console.log(currentUser);
 
   const logInHandleChange = (e: any) => {
     setLogInData({ ...logInData, [e.target.name]: e.target.value });
   };
-
+  console.log(logInData);
   const logInFunction = async () => {
     if (!currentUser) {
       await signInWithEmailAndPassword(
         auth,
         logInData.userEmail,
         logInData.userPassword
-      ).then((userCredential) => {
-        const user: any = userCredential.user;
-        localStorage.setItem('currentUser', user);
-        console.log('done');
-      });
+      )
+        .then((userCredential) => {
+          const user: any = userCredential.user;
+          localStorage.setItem('currentUser', user.reloadUserInfo.email);
+          console.log('login done');
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     }
   };
 
@@ -39,7 +44,13 @@ const LogInComp = () => {
         </div>
         <div>
           {' '}
-          <form className='flex flex-col gap-[8px] p-[12px] '>
+          <form
+            className='flex flex-col gap-[8px] p-[12px] '
+            onSubmit={(e) => {
+              e.preventDefault();
+              logInFunction();
+            }}
+          >
             <label className='font-serif'>User Email</label>
             <input
               className='border w-[313px] h-[35px]'
@@ -61,10 +72,8 @@ const LogInComp = () => {
             <div className='flex justify-end pt-[54px] '>
               {' '}
               <button
+                type='submit'
                 className='border w-[147px] h-[42px] font-serif bg-teal-400  '
-                onClick={() => {
-                  logInFunction();
-                }}
               >
                 Log In
               </button>
@@ -72,7 +81,7 @@ const LogInComp = () => {
           </form>
           <div className='flex'>
             <p>your first time?</p>
-            <NavLink className='font-serif text-sky-400' to='/signUp'>
+            <NavLink className='font-serif text-sky-400 ' to='/signUp'>
               Sign up
             </NavLink>
           </div>

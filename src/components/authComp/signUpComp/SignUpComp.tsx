@@ -1,6 +1,13 @@
 import { useState } from 'react';
 
-import { useCreateUser } from '../../utils/CreateUser';
+// import { useCreateUser } from '../../utils/CreateUser';
+
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../../assets/firebaseConfig/Firebase';
+// import { onAuthStateChanged } from 'firebase/auth';
+
+import { useDispatch } from 'react-redux';
+// import { addUser } from '../../../assets/slice/UserOnlineSlice';
 
 const SignUpComp = () => {
   const [signInput, setSignUpInput] = useState<any>();
@@ -10,6 +17,23 @@ const SignUpComp = () => {
     emailEr: '',
     passwordEr: '',
   });
+
+  const dispatch = useDispatch();
+
+  const handleSignUp = async () => {
+    await createUserWithEmailAndPassword(
+      auth,
+      signInput.userEmail,
+      signInput.userPassword
+    ).then((userCredential) => {
+      const user: any = userCredential.user;
+      console.log(user.reloadUserInfo.email);
+      localStorage.setItem('currentUser', user.reloadUserInfo.email);
+      // onAuthStateChanged(auth, (user) => {
+      //   dispatch(addUser(user));
+      // });
+    });
+  };
 
   const handleChange = (e: any) => {
     setSignUpInput({ ...signInput, [e.target.name]: e.target.value });
@@ -29,8 +53,7 @@ const SignUpComp = () => {
           className='flex flex-col gap-[8px] p-[12px] '
           onSubmit={(e: React.FormEvent) => {
             e.preventDefault();
-            if (signInput)
-              useCreateUser(signInput.userEmail, signInput.userPassword);
+            handleSignUp();
           }}
         >
           <label className='font-serif'>User Name</label>
