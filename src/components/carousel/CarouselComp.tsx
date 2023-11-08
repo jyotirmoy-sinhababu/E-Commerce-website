@@ -25,8 +25,6 @@ const CarouselComp = () => {
     navigate('/carouselDtl', {
       state: data.products?.filter((item: any) => item.id === id)[0],
     });
-
-    // console.log(data.products?.filter((item: any) => item.id === id)[0]);
   };
 
   return (

@@ -15,8 +15,6 @@ const CarouselDtlPage = () => {
   const location = useLocation();
   const data = location.state;
 
-  // console.log(data);
-
   const [count, setCount] = useState<number>(1);
 
   const handleImgClick = (i: number) => {

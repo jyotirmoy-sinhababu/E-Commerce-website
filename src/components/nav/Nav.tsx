@@ -1,11 +1,3 @@
-// import { useState, useEffect } from 'react';
-
-// import { onAuthStateChanged } from 'firebase/auth';
-// import { auth } from '../../assets/firebaseConfig/Firebase';
-
-import { useSelector, useDispatch } from 'react-redux';
-// import { addUser } from '../../assets/slice/UserOnlineSlice';
-
 import SearchBar from '../../sub-components/searchBar/SearchBar';
 import LogInBtn from '../../sub-components/btns/LogInBtn';
 import CartBtn from '../../sub-components/btns/CartBtn';
@@ -14,26 +6,10 @@ import LogOutBtn from '../../sub-components/btns/LogOutBtn';
 import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
-  const user = useSelector((state: any) => state.user.user);
-  // const dispatch = useDispatch();
-  console.log(user);
-  const navigate = useNavigate();
-  // const [currentUser, setCurrentUser] = useState<any>();
-
-  // useEffect(() => {
-  //   const currentUser = localStorage.getItem('currentUser');
-  //   setCurrentUser(currentUser);
-  // }, []);
-
   return (
     <div className='flex justify-around items-center p-[3%]'>
       <div className='flex gap-[25px] items-center '>
-        <button
-          onClick={() => {
-            navigate('/');
-          }}
-          className='text-4xl font-serif'
-        >
+        <button onClick={() => {}} className='text-4xl font-serif'>
           E-CART
         </button>
         <SearchBar />
@@ -42,7 +18,7 @@ const Nav = () => {
         <CartBtn />
       </div>
       <div className='nav-logIn-btn-cnt'>
-        {user ? <LogOutBtn /> : <LogInBtn />}
+        <LogInBtn />
       </div>
     </div>
   );

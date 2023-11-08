@@ -1,4 +1,3 @@
-// import './searchBarStyle.css';
 import { BsSearch } from 'react-icons/bs';
 
 const SearchBar = () => {

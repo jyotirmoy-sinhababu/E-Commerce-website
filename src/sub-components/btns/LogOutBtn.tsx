@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 import { AiOutlineLogout } from 'react-icons/ai';
 
-import { addUser } from '../../assets/slice/UserOnlineSlice';
 import { useDispatch } from 'react-redux';
 
 const LogOutBtn = () => {
@@ -17,7 +16,6 @@ const LogOutBtn = () => {
       .then(() => {
         localStorage.removeItem('currentUser');
         navigate('/');
-        dispatch(addUser(''));
         console.log('logOut btn');
       })
       .catch((error) => {});

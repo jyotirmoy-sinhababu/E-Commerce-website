@@ -4,15 +4,14 @@ import { carouselApi } from '../slice/CarouselSlice';
 import { categoriesApi } from '../slice/CategoriesSlice';
 import { allProductApi } from '../slice/AllProductsSlice';
 
-import useReducer from '../slice/UserOnlineSlice';
+// import useReducer from '../slice/UserOnlineSlice';
 
 export const store = configureStore({
   reducer: {
-    // Add the generated reducer as a specific top-level slice
     [carouselApi.reducerPath]: carouselApi.reducer,
     [categoriesApi.reducerPath]: categoriesApi.reducer,
     [allProductApi.reducerPath]: allProductApi.reducer,
-    user: useReducer,
+    // user: useReducer,
   },
 
   middleware: (getDefaultMiddleware) =>

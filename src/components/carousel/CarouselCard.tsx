@@ -1,5 +1,3 @@
-// import './carouselStyle.css';
-
 const CarouselCard = ({ data }: any) => {
   return (
     <div className='flex justify-center pt-[23px] bg-slate-300'>

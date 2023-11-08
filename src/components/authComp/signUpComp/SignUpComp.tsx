@@ -1,13 +1,10 @@
 import { useState } from 'react';
 
-// import { useCreateUser } from '../../utils/CreateUser';
-
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../../assets/firebaseConfig/Firebase';
-// import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 
 import { useDispatch } from 'react-redux';
-// import { addUser } from '../../../assets/slice/UserOnlineSlice';
 
 const SignUpComp = () => {
   const [signInput, setSignUpInput] = useState<any>();
@@ -29,9 +26,7 @@ const SignUpComp = () => {
       const user: any = userCredential.user;
       console.log(user.reloadUserInfo.email);
       localStorage.setItem('currentUser', user.reloadUserInfo.email);
-      // onAuthStateChanged(auth, (user) => {
-      //   dispatch(addUser(user));
-      // });
+      onAuthStateChanged(auth, (user) => {});
     });
   };
 
