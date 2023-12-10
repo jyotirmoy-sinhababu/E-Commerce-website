@@ -1,6 +1,5 @@
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 
-// import './btnStyle.css';
 
 const CartBtn = () => {
   return (

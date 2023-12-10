@@ -5,11 +5,9 @@ import { useNavigate } from 'react-router-dom';
 
 import { AiOutlineLogout } from 'react-icons/ai';
 
-import { useDispatch } from 'react-redux';
 
 const LogOutBtn = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const logOutFunction = () => {
     signOut(auth)

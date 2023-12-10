@@ -9,29 +9,29 @@ import { useSelector } from 'react-redux';
 const LogInComp = () => {
   const [logInData, setLogInData] = useState<any>();
 
-  const currentUser = useSelector((state: any) => state.user.user);
-  console.log(currentUser);
+  // const currentUser = useSelector((state: any) => state.user.user);
+  // console.log(currentUser);
 
   const logInHandleChange = (e: any) => {
     setLogInData({ ...logInData, [e.target.name]: e.target.value });
   };
   console.log(logInData);
   const logInFunction = async () => {
-    if (!currentUser) {
-      await signInWithEmailAndPassword(
-        auth,
-        logInData.userEmail,
-        logInData.userPassword
-      )
-        .then((userCredential) => {
-          const user: any = userCredential.user;
-          localStorage.setItem('currentUser', user.reloadUserInfo.email);
-          console.log('login done');
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    }
+    // if (!currentUser) {
+    //   await signInWithEmailAndPassword(
+    //     auth,
+    //     logInData.userEmail,
+    //     logInData.userPassword
+    //   )
+    //     .then((userCredential) => {
+    //       const user: any = userCredential.user;
+    //       localStorage.setItem('currentUser', user.reloadUserInfo.email);
+    //       console.log('login done');
+    //     })
+    //     .catch((err) => {
+    //       console.error(err);
+    //     });
+    // }
   };
 
   return (
@@ -48,7 +48,7 @@ const LogInComp = () => {
             className='flex flex-col gap-[8px] p-[12px] '
             onSubmit={(e) => {
               e.preventDefault();
-              logInFunction();
+              // logInFunction();
             }}
           >
             <label className='font-serif'>User Email</label>
