@@ -1,9 +1,9 @@
-import Auth from '../../components/auth/Auth';
+import AuthPage from '../AuthPage/AuthPage';
 
 const HomePage = () => {
   return (
     <div>
-      <Auth />
+      <AuthPage />
     </div>
   );
 };

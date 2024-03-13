@@ -6,8 +6,8 @@ import SignUp from './SignUp';
 const Auth = () => {
   const [isLogin, setIsLogin] = useState<boolean>(false);
   return (
-    <div className='flex flex-col bgColor h-[100vh]'>
-      <div className='flex flex-col'>
+    <div className='flex flex-col justify-center items-center 5 '>
+      <div className='flex flex-col gap-5  '>
         <Logo />
         {isLogin ? <LogIn /> : <SignUp />}
       </div>
@@ -16,7 +16,7 @@ const Auth = () => {
         OR
         <div className='h-[1px] w-[280px] bg-black'></div>
       </div>
-      <div>
+      <div className='flex'>
         <div>
           {isLogin ? "Don't have an account?" : 'Already have an account?'}
         </div>
