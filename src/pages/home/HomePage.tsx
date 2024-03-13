@@ -1,11 +1,5 @@
-import AuthPage from '../AuthPage/AuthPage';
-
 const HomePage = () => {
-  return (
-    <div>
-      <AuthPage />
-    </div>
-  );
+  return <div></div>;
 };
 
 export default HomePage;

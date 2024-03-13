@@ -11,9 +11,8 @@ const Auth = () => {
         <Logo />
         {isLogin ? <LogIn /> : <SignUp />}
       </div>
-      <div className='flex items-center'>
-        <div className='h-[1px] w-[280px] bg-black'></div>
-        OR
+      <div className='flex items-center justify-center'>
+        <div className='h-[1px] w-[280px] bg-black'></div>: :
         <div className='h-[1px] w-[280px] bg-black'></div>
       </div>
       <div className='flex gap-1'>
