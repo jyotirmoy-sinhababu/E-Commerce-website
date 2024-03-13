@@ -16,15 +16,15 @@ const Auth = () => {
         OR
         <div className='h-[1px] w-[280px] bg-black'></div>
       </div>
-      <div className='flex'>
-        <div>
+      <div className='flex gap-1'>
+        <div className='text-xl'>
           {isLogin ? "Don't have an account?" : 'Already have an account?'}
         </div>
         <div
           onClick={() => {
             setIsLogin(!isLogin);
           }}
-          className='cursor-pointer'
+          className='cursor-pointer text-xl font-semibold'
         >
           {isLogin ? 'Sign up' : 'Log in'}
         </div>
