@@ -1,10 +1,11 @@
 const SignUp = () => {
   return (
-    <div>
+    <form className='flex flex-col '>
       <input type='text' />
       <input type='email' />
       <input type='password' />
-    </div>
+      <button className='w-[180px]'>Sign up</button>
+    </form>
   );
 };
 
