@@ -51,8 +51,7 @@ const useCreateUserWithEmailandPassword = () => {
         await setDoc(doc(firestore, 'users', newUser.user.uid), userDoc);
         setIsLoading(false);
         localStorage.setItem('user-info', JSON.stringify(userDoc));
-        dispatch(authentication(newUser));
-        console.log('success');
+        dispatch(authentication(userDoc));
       }
     } catch (error) {
       toast.error('something went wrong');

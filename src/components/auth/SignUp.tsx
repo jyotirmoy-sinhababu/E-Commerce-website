@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import useCreateUserWithEmailandPassword from '../../hooks/useCreateUserWithEmailandPassword';
 
@@ -8,7 +9,8 @@ const SignUp = () => {
     email: '',
     password: '',
   });
-  console.log(inputs);
+
+  const navigate = useNavigate();
 
   const { isLoading, signedUp } = useCreateUserWithEmailandPassword();
 
@@ -17,6 +19,7 @@ const SignUp = () => {
       onSubmit={(e) => {
         e.preventDefault();
         signedUp(inputs);
+        navigate('/');
       }}
       className='flex flex-col gap-8 '
     >
