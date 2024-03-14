@@ -10,11 +10,13 @@ import { collection, query, where, getDocs } from 'firebase/firestore';
 
 const useCreateUserWithEmailandPassword = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const signedUp = async (inputs: any) => {
+    debugger;
 
-  const signUp = async (inputs: any) => {
-    if (!inputs.email || inputs.password || inputs.name) {
-      return toast.error('All fields are required');
-    }
+    // if (!inputs.email || inputs.password || inputs.name) {
+    //   toast.error('All fields are required');
+    //   return;
+    // }
 
     const usersRef = collection(firestore, 'users');
 
@@ -46,13 +48,14 @@ const useCreateUserWithEmailandPassword = () => {
         await setDoc(doc(firestore, 'users', newUser.user.uid), userDoc);
         setIsLoading(false);
         localStorage.setItem('user-info', JSON.stringify(userDoc));
+        console.log('success');
       }
     } catch (error) {
       toast.error('something went wrong');
       setIsLoading(false);
     }
   };
-  return { isLoading, signUp };
+  return { isLoading, signedUp };
 };
 
 export default useCreateUserWithEmailandPassword;

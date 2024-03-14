@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import useCreateUserWithEmailandPassword from '../../hooks/useCreateUserWithEmailandPassword';
+
 const SignUp = () => {
   const [inputs, setInputs] = useState({
     name: '',
@@ -8,8 +10,16 @@ const SignUp = () => {
   });
   console.log(inputs);
 
+  const { isLoading, signedUp } = useCreateUserWithEmailandPassword();
+
   return (
-    <form className='flex flex-col gap-8 '>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        signedUp(inputs);
+      }}
+      className='flex flex-col gap-8 '
+    >
       <input
         type='text'
         className='w-[370px] h-[47px] bg-slate-500 pl-2 text-xl'
@@ -35,8 +45,11 @@ const SignUp = () => {
         }}
       />
       <div className='flex justify-end w-[340px]'>
-        <button className='h-[49px] w-[110px] cursor-pointer font-bold text-xl border-2 border-teal-500 rounded-md'>
-          Sign up
+        <button
+          type='submit'
+          className='h-[49px] w-[110px] cursor-pointer font-bold text-xl border-2 border-teal-500 rounded-md'
+        >
+          {isLoading ? 'loading...' : 'Sign up'}
         </button>
       </div>
     </form>
