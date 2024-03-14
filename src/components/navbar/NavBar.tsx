@@ -11,11 +11,12 @@ import { VscAccount } from 'react-icons/vsc';
 import { MdBorderColor, MdOutlineLogout } from 'react-icons/md';
 
 import { useSelector } from 'react-redux';
+import useLogout from '../../hooks/useLogout';
 
 const NavBar = () => {
   const user = useSelector((state: any) => state?.auth.user);
-  console.log(user);
 
+  const { handleLogout } = useLogout();
   return (
     <>
       {' '}
@@ -33,7 +34,7 @@ const NavBar = () => {
                 <DropdownItem>
                   <MdBorderColor /> Orders
                 </DropdownItem>
-                <DropdownItem>
+                <DropdownItem onClick={handleLogout}>
                   <MdOutlineLogout />
                   Logout
                 </DropdownItem>
