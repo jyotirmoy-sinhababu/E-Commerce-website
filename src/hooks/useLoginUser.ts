@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
@@ -11,6 +12,7 @@ import { authentication } from '../components/slice/AuthSlice';
 const useLoginUser = () => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const loginUser = async (inputs: any) => {
     setIsLoading(true);
@@ -29,6 +31,7 @@ const useLoginUser = () => {
         dispatch(authentication(docSnap.data()));
         console.log(doc);
         setIsLoading(false);
+        navigate('/');
       }
     } catch (error) {
       console.log(error);

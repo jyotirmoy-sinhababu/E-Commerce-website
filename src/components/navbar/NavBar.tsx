@@ -9,18 +9,21 @@ const NavBar = () => {
   return (
     <>
       {' '}
-      <div className='flex justify-between items-center px-[4%] mt-[2%] bg-bgColor'>
+      <div className='flex justify-between items-center px-[4%] h-[120px] bg-bgColor'>
         <Logo />
         <div className='flex items-center gap-4'>
           <div className='flex gap-1'>
             <Avatar name='Jyotirmioy' size='50' round={true} />
-            <button>Login</button>
+            <button className='text-xl font-medium text-gray-100'>Login</button>
           </div>
 
-          <Link to='' className='flex items-center'>
+          <Link
+            to=''
+            className='flex items-center text-xl font-medium text-gray-100'
+          >
             <BsCartCheckFill /> Cart
           </Link>
-          <button className='flex items-center'>
+          <button className='flex items-center text-xl font-medium text-gray-100'>
             <FaShop />
             Become a seller
           </button>

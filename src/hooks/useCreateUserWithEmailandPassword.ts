@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 import { firestore, auth } from '../firebase/Firebase';
 
@@ -13,6 +14,7 @@ import { authentication } from '../components/slice/AuthSlice';
 
 const useCreateUserWithEmailandPassword = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -52,6 +54,7 @@ const useCreateUserWithEmailandPassword = () => {
         setIsLoading(false);
         localStorage.setItem('user-info', JSON.stringify(userDoc));
         dispatch(authentication(userDoc));
+        navigate('/');
       }
     } catch (error) {
       toast.error('something went wrong');

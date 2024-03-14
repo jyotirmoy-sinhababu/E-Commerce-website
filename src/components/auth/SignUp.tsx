@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import useCreateUserWithEmailandPassword from '../../hooks/useCreateUserWithEmailandPassword';
 
@@ -10,8 +9,6 @@ const SignUp = () => {
     password: '',
   });
 
-  const navigate = useNavigate();
-
   const { isLoading, signedUp } = useCreateUserWithEmailandPassword();
 
   return (
@@ -19,13 +16,12 @@ const SignUp = () => {
       onSubmit={(e) => {
         e.preventDefault();
         signedUp(inputs);
-        navigate('/');
       }}
       className='flex flex-col gap-8 '
     >
       <input
         type='text'
-        className='w-[370px] h-[47px] bg-slate-500 pl-2 text-xl'
+        className='w-[370px] h-[47px] bg-slate-500 pl-2 text-xl text-gray-100'
         placeholder='enter your name'
         onChange={(e) => {
           setInputs({ ...inputs, name: e.target.value });
@@ -33,7 +29,7 @@ const SignUp = () => {
       />
       <input
         type='email'
-        className='w-[370px] h-[47px] bg-slate-500 pl-2 text-xl'
+        className='w-[370px] h-[47px] bg-slate-500 pl-2 text-xl text-gray-100 '
         placeholder='enter your email'
         onChange={(e) => {
           setInputs({ ...inputs, email: e.target.value });
@@ -41,7 +37,7 @@ const SignUp = () => {
       />
       <input
         type='password'
-        className='w-[370px] h-[47px] bg-slate-500 pl-2 text-xl'
+        className='w-[370px] h-[47px] bg-slate-500 pl-2 text-xl text-gray-100'
         placeholder='enter your password'
         onChange={(e) => {
           setInputs({ ...inputs, password: e.target.value });
