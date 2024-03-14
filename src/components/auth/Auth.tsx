@@ -9,7 +9,7 @@ const Auth = () => {
     <div className='flex flex-col justify-center items-center 5 '>
       <div className='flex flex-col gap-5  '>
         <Logo />
-        {isLogin ? <LogIn /> : <SignUp />}
+        {!isLogin ? <LogIn /> : <SignUp />}
       </div>
       <div className='flex items-center justify-center'>
         <div className='h-[1px] w-[280px] bg-black'></div>: :
@@ -17,7 +17,7 @@ const Auth = () => {
       </div>
       <div className='flex gap-1'>
         <div className='text-xl'>
-          {isLogin ? "Don't have an account?" : 'Already have an account?'}
+          {!isLogin ? "Don't have an account?" : 'Already have an account?'}
         </div>
         <div
           onClick={() => {
@@ -25,7 +25,7 @@ const Auth = () => {
           }}
           className='cursor-pointer text-xl font-semibold'
         >
-          {isLogin ? 'Sign up' : 'Log in'}
+          {!isLogin ? 'Sign up' : 'Log in'}
         </div>
       </div>
     </div>
