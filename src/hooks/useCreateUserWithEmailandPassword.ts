@@ -8,15 +8,18 @@ import { setDoc } from 'firebase/firestore';
 import { doc } from 'firebase/firestore';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 
+import { useDispatch } from 'react-redux';
+import { authentication } from '../components/slice/AuthSlice';
+
 const useCreateUserWithEmailandPassword = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const signedUp = async (inputs: any) => {
-    debugger;
 
-    // if (!inputs.email || inputs.password || inputs.name) {
-    //   toast.error('All fields are required');
-    //   return;
-    // }
+  const dispatch = useDispatch();
+
+  const signedUp = async (inputs: any) => {
+    if (!inputs.email || !inputs.password || !inputs.name) {
+      toast.error('All fields are required');
+    }
 
     const usersRef = collection(firestore, 'users');
 
@@ -48,6 +51,7 @@ const useCreateUserWithEmailandPassword = () => {
         await setDoc(doc(firestore, 'users', newUser.user.uid), userDoc);
         setIsLoading(false);
         localStorage.setItem('user-info', JSON.stringify(userDoc));
+        dispatch(authentication(newUser));
         console.log('success');
       }
     } catch (error) {
