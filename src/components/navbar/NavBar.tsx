@@ -12,21 +12,23 @@ import { MdBorderColor, MdOutlineLogout } from 'react-icons/md';
 
 import { useSelector } from 'react-redux';
 import useLogout from '../../hooks/useLogout';
+import { useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
   const user = useSelector((state: any) => state?.auth.user);
 
   const { handleLogout } = useLogout();
+  const navigate = useNavigate();
   return (
     <>
       {' '}
-      <div className='flex justify-between items-center px-[4%] h-[100px] bg-bgColor'>
+      <div className='flex justify-between items-center px-[4%] h-[100px] bg-bgColor '>
         <Logo />
-        <div className='flex items-center gap-16'>
+        <div className='sm:flex items-center gap-16 hidden '>
           <div className='flex gap-1 items-center'>
             <Avatar name={user ? user.userName : ''} size='40' round={true} />
             {user ? (
-              <Dropdown label='profile' color='bg - bgColor' size='lg'>
+              <Dropdown label='profile' color='bg - bgColor' size='lg '>
                 <DropdownItem>
                   <VscAccount />
                   My Account
@@ -40,7 +42,12 @@ const NavBar = () => {
                 </DropdownItem>
               </Dropdown>
             ) : (
-              <button className='text-xl font-normal text-gray-100'>
+              <button
+                onClick={() => {
+                  navigate('auth');
+                }}
+                className='text-xl font-normal text-gray-100'
+              >
                 Login
               </button>
             )}
