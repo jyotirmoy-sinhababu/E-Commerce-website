@@ -67,7 +67,12 @@ const NavBar = () => {
           >
             <BsCartCheckFill /> Cart
           </Link>
-          <button className='flex items-center text-xl font-normal text-gray-100'>
+          <button
+            onClick={() => {
+              navigate('seller');
+            }}
+            className='flex items-center text-xl font-normal text-gray-100'
+          >
             <FaShop />
             Become a seller
           </button>
