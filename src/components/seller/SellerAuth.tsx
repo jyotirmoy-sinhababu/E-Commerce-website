@@ -1,25 +1,37 @@
-import { Button, TextInput } from 'flowbite-react';
+import Logo from '../logo/Logo';
+import { useState } from 'react';
+import SellerLogin from './SellerLogin';
+import SellerSignUp from './SellerSignUp';
 
 const SellerAuth = () => {
+  const [isLogin, setIsLogin] = useState<boolean>(false);
   return (
-    <form>
-      <TextInput type='text' placeholder='your  name' required shadow />
-      <TextInput
-        type='email'
-        placeholder='your business email'
-        required
-        shadow
-      />
-      <TextInput type='text' placeholder='your business name' required shadow />
-      <TextInput
-        type='number'
-        placeholder='your business number'
-        required
-        shadow
-      />
-      <TextInput type='password' placeholder='your password' required shadow />
-      <Button>Sign Up</Button>
-    </form>
+    <div className='flex justify-center items-center flex-col'>
+      <div
+        className='flex flex-col gap-5 justify-center mt-[7%]
+       '
+      >
+        <Logo />
+        {!isLogin ? <SellerLogin /> : <SellerSignUp />}
+      </div>
+      <div className='flex items-center justify-center'>
+        <div className='h-[1px] w-[280px] bg-black'></div>: :
+        <div className='h-[1px] w-[280px] bg-black'></div>
+      </div>
+      <div className='flex gap-1'>
+        <div className='text-xl'>
+          {!isLogin ? "Don't have an account?" : 'Already have an account?'}
+        </div>
+        <div
+          onClick={() => {
+            setIsLogin(!isLogin);
+          }}
+          className='cursor-pointer text-xl font-semibold'
+        >
+          {!isLogin ? 'Sign up' : 'Log in'}
+        </div>
+      </div>
+    </div>
   );
 };
 
