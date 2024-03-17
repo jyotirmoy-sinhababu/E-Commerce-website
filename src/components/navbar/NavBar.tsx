@@ -29,11 +29,19 @@ const NavBar = () => {
             <Avatar name={user ? user.userName : ''} size='40' round={true} />
             {user ? (
               <Dropdown label='profile' color='bg - bgColor' size='lg '>
-                <DropdownItem>
+                <DropdownItem
+                  onClick={() => {
+                    navigate('account');
+                  }}
+                >
                   <VscAccount />
                   My Account
                 </DropdownItem>
-                <DropdownItem>
+                <DropdownItem
+                  onClick={() => {
+                    navigate('order');
+                  }}
+                >
                   <MdBorderColor /> Orders
                 </DropdownItem>
                 <DropdownItem onClick={handleLogout}>
